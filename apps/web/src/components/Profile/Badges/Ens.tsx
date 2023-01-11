@@ -1,5 +1,4 @@
 import { Tooltip } from '@components/UI/Tooltip';
-import { Trans } from '@lingui/macro';
 import { STATIC_IMAGES_URL } from 'data/constants';
 import type { Profile } from 'lens';
 import type { FC } from 'react';
@@ -17,7 +16,7 @@ const Ens: FC<Props> = ({ profile }) => {
     <Tooltip
       content={
         <span>
-          <Trans>ENS name:</Trans> <b>{profile?.onChainIdentity?.ens?.name}</b>
+          ENS name: <b>{profile?.onChainIdentity?.ens?.name}</b>
         </span>
       }
       placement="top"

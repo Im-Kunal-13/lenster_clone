@@ -12,5 +12,4 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/styles/index.css"],
-  "exclude": ["cypress/support"]
 }

@@ -2,7 +2,6 @@ import Beta from '@components/Shared/Badges/Beta';
 import { Card } from '@components/UI/Card';
 import { CheckCircleIcon, ExternalLinkIcon } from '@heroicons/react/outline';
 import { Analytics } from '@lib/analytics';
-import { Trans } from '@lingui/macro';
 import axios from 'axios';
 import { APP_NAME } from 'data/constants';
 import type { FC } from 'react';
@@ -34,20 +33,20 @@ const CrossPost: FC = () => {
     <Card className="space-y-2 linkify p-5">
       <div className="flex items-center space-x-2">
         <div className="text-lg font-bold">
-          <Trans>Cross post to Twitter</Trans>
+          Cross post to Twitter
         </div>
         <Beta />
       </div>
       <div className="pb-3">
-        <Trans>Reflect will auto-tweet new {APP_NAME} posts, so you can finally escape the bird site.</Trans>
+        Reflect will auto-tweet new {APP_NAME} posts, so you can finally escape the bird site.
       </div>
       {repostingTo ? (
         <>
           <div className="flex items-center space-x-1.5">
             <span>
-              <Trans>
+              
                 Already reposting to <b>@{repostingTo}</b>
-              </Trans>
+              
             </span>
             <CheckCircleIcon className="w-5 h-5 text-brand" />
           </div>
@@ -61,7 +60,7 @@ const CrossPost: FC = () => {
             rel="noreferrer noopener"
           >
             <span>
-              <Trans>Disable now</Trans>
+              Disable now
             </span>
             <ExternalLinkIcon className="w-4 h-4" />
           </a>
@@ -77,7 +76,7 @@ const CrossPost: FC = () => {
           rel="noreferrer noopener"
         >
           <span>
-            <Trans>Setup now</Trans>
+            Setup now
           </span>
           <ExternalLinkIcon className="w-4 h-4" />
         </a>

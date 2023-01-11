@@ -3,7 +3,6 @@ import { PauseIcon, PlayIcon } from '@heroicons/react/solid';
 import { Analytics } from '@lib/analytics';
 import getAttributeFromTrait from '@lib/getAttributeFromTrait';
 import getThumbnailUrl from '@lib/getThumbnailUrl';
-import { t } from '@lingui/macro';
 import type { Attribute } from 'lens';
 import type { APITypes } from 'plyr-react';
 import type { ChangeEvent, FC } from 'react';
@@ -25,13 +24,13 @@ interface Props {
 export const AudioPublicationSchema = object({
   title: string()
     .trim()
-    .min(1, { message: t`Invalid audio title` }),
+    .min(1, { message: `Invalid audio title` }),
   author: string()
     .trim()
-    .min(1, { message: t`Invalid author name` }),
+    .min(1, { message: `Invalid author name` }),
   cover: string()
     .trim()
-    .min(1, { message: t`Invalid cover image` })
+    .min(1, { message: `Invalid cover image` })
 });
 
 const Audio: FC<Props> = ({ src, isNew = false, publication, txn }) => {
@@ -86,7 +85,7 @@ const Audio: FC<Props> = ({ src, isNew = false, publication, txn }) => {
                   <div className="flex flex-col w-full">
                     <input
                       className="border-none text-lg text-white placeholder-white bg-transparent outline-none"
-                      placeholder={t`Add title`}
+                      placeholder={`Add title`}
                       name="title"
                       value={audioPublication.title}
                       autoComplete="off"
@@ -94,7 +93,7 @@ const Audio: FC<Props> = ({ src, isNew = false, publication, txn }) => {
                     />
                     <input
                       className="border-none text-white/70 placeholder-white/70 bg-transparent outline-none"
-                      placeholder={t`Add author`}
+                      placeholder={`Add author`}
                       name="author"
                       value={audioPublication.author}
                       onChange={handleChange}

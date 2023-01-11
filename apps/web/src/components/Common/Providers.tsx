@@ -1,7 +1,4 @@
 import { ApolloProvider } from '@apollo/client';
-import { initLocale } from '@lib/i18n';
-import { i18n } from '@lingui/core';
-import { I18nProvider } from '@lingui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ALCHEMY_KEY, IS_MAINNET } from 'data/constants';
 import { ThemeProvider } from 'next-themes';
@@ -39,23 +36,24 @@ const queryClient = new QueryClient();
 
 const Providers = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
-    initLocale();
+    // initLocale();
   }, []);
 
   return (
-    <I18nProvider i18n={i18n}>
-      <ErrorBoundary>
-        <WagmiConfig client={wagmiClient}>
-          <ApolloProvider client={client}>
-            <QueryClientProvider client={queryClient}>
-              <ThemeProvider defaultTheme="light" attribute="class">
-                <Layout>{children}</Layout>
-              </ThemeProvider>
-            </QueryClientProvider>
-          </ApolloProvider>
-        </WagmiConfig>
-      </ErrorBoundary>
-    </I18nProvider>
+    // <I18nProvider i18n={i18n}>
+    //   <ErrorBoundary>
+    //     <WagmiConfig client={wagmiClient}>
+    //       <ApolloProvider client={client}>
+    //         <QueryClientProvider client={queryClient}>
+    //           <ThemeProvider defaultTheme="light" attribute="class">
+    //             <Layout>{children}</Layout>
+    //           </ThemeProvider>
+    //         </QueryClientProvider>
+    //       </ApolloProvider>
+    //     </WagmiConfig>
+    //   </ErrorBoundary>
+    // </I18nProvider>
+    <></>
   );
 };
 

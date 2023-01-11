@@ -5,7 +5,6 @@ import Markup from '@components/Shared/Markup';
 import UserProfile from '@components/Shared/UserProfile';
 import { Tooltip } from '@components/UI/Tooltip';
 import getURLs from '@lib/getURLs';
-import { t } from '@lingui/macro';
 import type { Profile } from 'lens';
 import {
   PublicationDocument,

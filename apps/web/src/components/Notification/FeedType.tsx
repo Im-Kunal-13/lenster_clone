@@ -7,7 +7,6 @@ import {
   LightningBoltIcon
 } from '@heroicons/react/outline';
 import { Analytics } from '@lib/analytics';
-import { t } from '@lingui/macro';
 import type { Dispatch, FC } from 'react';
 import { NOTIFICATION } from 'src/tracking';
 
@@ -21,7 +20,7 @@ const FeedType: FC<Props> = ({ setFeedType, feedType }) => {
     <div className="flex justify-between items-center">
       <div className="flex overflow-x-auto gap-3 px-5 pb-2 mt-3 sm:px-0 sm:mt-0 md:pb-0">
         <TabButton
-          name={t`All notifications`}
+          name={`All notifications`}
           icon={<LightningBoltIcon className="w-4 h-4" />}
           active={feedType === 'ALL'}
           type="all"
@@ -31,7 +30,7 @@ const FeedType: FC<Props> = ({ setFeedType, feedType }) => {
           }}
         />
         <TabButton
-          name={t`Mentions`}
+          name={`Mentions`}
           icon={<AtSymbolIcon className="w-4 h-4" />}
           active={feedType === 'MENTIONS'}
           type="mentions"
@@ -41,7 +40,7 @@ const FeedType: FC<Props> = ({ setFeedType, feedType }) => {
           }}
         />
         <TabButton
-          name={t`Comments`}
+          name={`Comments`}
           icon={<ChatAlt2Icon className="w-4 h-4" />}
           active={feedType === 'COMMENTS'}
           type="comments"
@@ -51,7 +50,7 @@ const FeedType: FC<Props> = ({ setFeedType, feedType }) => {
           }}
         />
         <TabButton
-          name={t`Likes`}
+          name={`Likes`}
           icon={<HeartIcon className="w-4 h-4" />}
           active={feedType === 'LIKES'}
           type="likes"
@@ -61,7 +60,7 @@ const FeedType: FC<Props> = ({ setFeedType, feedType }) => {
           }}
         />
         <TabButton
-          name={t`Collects`}
+          name={`Collects`}
           icon={<CollectionIcon className="w-4 h-4" />}
           active={feedType === 'COLLECTS'}
           type="collects"

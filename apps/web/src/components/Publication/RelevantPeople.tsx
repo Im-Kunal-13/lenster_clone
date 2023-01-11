@@ -4,7 +4,6 @@ import { Card } from '@components/UI/Card';
 import { ErrorMessage } from '@components/UI/ErrorMessage';
 import type { LensterPublication } from '@generated/types';
 import formatHandle from '@lib/formatHandle';
-import { t } from '@lingui/macro';
 import { ALL_HANDLES_REGEX, HANDLE_SANITIZE_REGEX } from 'data/constants';
 import type { Profile } from 'lens';
 import { useRelevantPeopleQuery } from 'lens';
@@ -60,7 +59,7 @@ const RelevantPeople: FC<Props> = ({ publication }) => {
 
   return (
     <Card as="aside" className="space-y-4 p-5">
-      <ErrorMessage title={t`Failed to load relevant people`} error={error} />
+      <ErrorMessage title={`Failed to load relevant people`} error={error} />
       {data?.profiles?.items?.map((profile) => (
         <div key={profile?.id} className="truncate">
           <UserProfile profile={profile as Profile} isFollowing={profile.isFollowedByMe} showFollow />

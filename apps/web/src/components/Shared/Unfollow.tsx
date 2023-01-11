@@ -5,7 +5,6 @@ import { Analytics } from '@lib/analytics';
 import getSignature from '@lib/getSignature';
 import onError from '@lib/onError';
 import splitSignature from '@lib/splitSignature';
-import { t } from '@lingui/macro';
 import { FollowNFT } from 'abis';
 import { SIGN_WALLET } from 'data/constants';
 import type { Signer } from 'ethers';
@@ -61,10 +60,10 @@ const Unfollow: FC<Props> = ({ profile, showText = false, setFollowing }) => {
         if (data?.broadcast.__typename === 'RelayError') {
           await burnWithSig(signature, typedData);
         }
-        toast.success(t`Unfollowed successfully!`);
+        toast.success(`Unfollowed successfully!`);
         Analytics.track(PROFILE.UNFOLLOW);
       } catch {
-        toast.error(t`User rejected request`);
+        toast.error(`User rejected request`);
       } finally {
         setWriteLoading(false);
       }
@@ -98,7 +97,7 @@ const Unfollow: FC<Props> = ({ profile, showText = false, setFollowing }) => {
         )
       }
     >
-      {showText && t`Unfollow`}
+      {showText && `Unfollow`}
     </Button>
   );
 };

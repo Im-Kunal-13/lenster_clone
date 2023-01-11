@@ -4,7 +4,6 @@ import Beta from '@components/Shared/Badges/Beta';
 import New from '@components/Shared/Badges/New';
 import { Card } from '@components/UI/Card';
 import { GridItemEight, GridItemFour, GridLayout } from '@components/UI/GridLayout';
-import { Trans } from '@lingui/macro';
 import { APP_NAME } from 'data/constants';
 import type { NextPage } from 'next';
 import Custom404 from 'src/pages/404';
@@ -30,16 +29,16 @@ const InterestsSettings: NextPage = () => {
           <div className="space-y-5">
             <div className="flex items-center space-x-2">
               <div className="text-lg font-bold">
-                <Trans>Select profile interests</Trans>
+                Select profile interests
               </div>
               <Beta />
               <New />
             </div>
             <p>
-              <Trans>
+              
                 Interests you select are used to personalize your experience across Lenster. You can adjust
                 your interests if something doesn't look right.
-              </Trans>
+              
             </p>
           </div>
           <div className="divider my-5" />

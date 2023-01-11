@@ -18,7 +18,6 @@ import onError from '@lib/onError';
 import splitSignature from '@lib/splitSignature';
 import uploadToArweave from '@lib/uploadToArweave';
 import uploadToIPFS from '@lib/uploadToIPFS';
-import { t, Trans } from '@lingui/macro';
 import { LensPeriphery } from 'abis';
 import { APP_NAME, COVER, LENS_PERIPHERY, SIGN_WALLET, URL_REGEX } from 'data/constants';
 import type { CreatePublicSetProfileMetadataUriRequest, MediaSet, Profile } from 'lens';
@@ -37,15 +36,15 @@ import { useContractWrite, useSignTypedData } from 'wagmi';
 import { object, string, union } from 'zod';
 
 const editProfileSchema = object({
-  name: string().max(100, { message: t`Name should not exceed 100 characters` }),
+  name: string().max(100, { message: `Name should not exceed 100 characters` }),
   location: string().max(100, {
-    message: t`Location should not exceed 100 characters`
+    message: `Location should not exceed 100 characters`
   }),
-  website: union([string().regex(URL_REGEX, { message: t`Invalid website` }), string().max(0)]),
+  website: union([string().regex(URL_REGEX, { message: `Invalid website` }), string().max(0)]),
   twitter: string().max(100, {
-    message: t`Twitter should not exceed 100 characters`
+    message: `Twitter should not exceed 100 characters`
   }),
-  bio: string().max(260, { message: t`Bio should not exceed 260 characters` })
+  bio: string().max(260, { message: `Bio should not exceed 260 characters` })
 });
 
 interface Props {
@@ -60,7 +59,7 @@ const ProfileSettingsForm: FC<Props> = ({ profile }) => {
   const [uploading, setUploading] = useState(false);
 
   const onCompleted = () => {
-    toast.success(t`Profile updated successfully!`);
+    toast.success(`Profile updated successfully!`);
     Analytics.track(SETTINGS.PROFILE.UPDATE);
   };
 
@@ -230,19 +229,19 @@ const ProfileSettingsForm: FC<Props> = ({ profile }) => {
           editProfile(name, location, website, twitter, bio);
         }}
       >
-        {error && <ErrorMessage className="mb-3" title={t`Transaction failed!`} error={error} />}
-        <Input label={t`Profile Id`} type="text" value={currentProfile?.id} disabled />
-        <Input label={t`Name`} type="text" placeholder="Gavin" {...form.register('name')} />
-        <Input label={t`Location`} type="text" placeholder="Miami" {...form.register('location')} />
-        <Input label={t`Website`} type="text" placeholder="https://hooli.com" {...form.register('website')} />
+        {error && <ErrorMessage className="mb-3" title={`Transaction failed!`} error={error} />}
+        <Input label={`Profile Id`} type="text" value={currentProfile?.id} disabled />
+        <Input label={`Name`} type="text" placeholder="Gavin" {...form.register('name')} />
+        <Input label={`Location`} type="text" placeholder="Miami" {...form.register('location')} />
+        <Input label={`Website`} type="text" placeholder="https://hooli.com" {...form.register('website')} />
         <Input
-          label={t`Twitter`}
+          label={`Twitter`}
           type="text"
           prefix="https://twitter.com"
           placeholder="gavin"
           {...form.register('twitter')}
         />
-        <TextArea label={t`Bio`} placeholder={t`Tell us something about you!`} {...form.register('bio')} />
+        <TextArea label={`Bio`} placeholder={`Tell us something about you!`} {...form.register('bio')} />
         <div className="space-y-1.5">
           <div className="label">Cover</div>
           <div className="space-y-3">
@@ -265,13 +264,13 @@ const ProfileSettingsForm: FC<Props> = ({ profile }) => {
           <div className="flex items-center space-x-2 label">
             <img className="w-5 h-5" src="/pride.svg" alt="Pride Logo" />
             <span>
-              <Trans>Celebrate pride every day</Trans>
+              Celebrate pride every day
             </span>
           </div>
           <div className="flex items-center space-x-2">
             <Toggle on={pride} setOn={setPride} />
             <div>
-              <Trans>Turn this on to show your pride and turn the {APP_NAME} logo rainbow every day.</Trans>
+              Turn this on to show your pride and turn the {APP_NAME} logo rainbow every day.
             </div>
           </div>
         </div>
@@ -281,7 +280,7 @@ const ProfileSettingsForm: FC<Props> = ({ profile }) => {
           disabled={isLoading}
           icon={isLoading ? <Spinner size="xs" /> : <PencilIcon className="w-4 h-4" />}
         >
-          <Trans>Save</Trans>
+          Save
         </Button>
       </Form>
     </Card>

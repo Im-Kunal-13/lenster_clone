@@ -1,6 +1,5 @@
 import type { NewLensterAttachment } from '@generated/types';
 import uploadToIPFS from '@lib/uploadToIPFS';
-import { t } from '@lingui/macro';
 import { useCallback } from 'react';
 import { toast } from 'react-hot-toast';
 import { usePublicationStore } from 'src/store/publication';
@@ -36,17 +35,17 @@ const useUploadAttachments = () => {
         const isAudio = file.type.includes('audio');
 
         if (isImage && file.size > 10000000) {
-          toast.error(t`Image size should be less than 10MB`);
+          toast.error(`Image size should be less than 10MB`);
           return false;
         }
 
         if (isVideo && file.size > 50000000) {
-          toast.error(t`Video size should be less than 50MB`);
+          toast.error(`Video size should be less than 50MB`);
           return false;
         }
 
         if (isAudio && file.size > 20000000) {
-          toast.error(t`Audio size should be less than 20MB`);
+          toast.error(`Audio size should be less than 20MB`);
           return false;
         }
 

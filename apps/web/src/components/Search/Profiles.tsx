@@ -5,7 +5,6 @@ import { EmptyState } from '@components/UI/EmptyState';
 import { ErrorMessage } from '@components/UI/ErrorMessage';
 import InfiniteLoader from '@components/UI/InfiniteLoader';
 import { UsersIcon } from '@heroicons/react/outline';
-import { t, Trans } from '@lingui/macro';
 import { SCROLL_THRESHOLD } from 'data/constants';
 import type { Profile, ProfileSearchResult } from 'lens';
 import { CustomFiltersTypes, SearchRequestTypes, useSearchProfilesQuery } from 'lens';
@@ -49,9 +48,9 @@ const Profiles: FC<Props> = ({ query }) => {
     return (
       <EmptyState
         message={
-          <Trans>
+          
             No profiles for <b>&ldquo;{query}&rdquo;</b>
-          </Trans>
+          
         }
         icon={<UsersIcon className="w-8 h-8 text-brand" />}
       />
@@ -59,7 +58,7 @@ const Profiles: FC<Props> = ({ query }) => {
   }
 
   if (error) {
-    return <ErrorMessage title={t`Failed to load profiles`} error={error} />;
+    return <ErrorMessage title={`Failed to load profiles`} error={error} />;
   }
 
   return (

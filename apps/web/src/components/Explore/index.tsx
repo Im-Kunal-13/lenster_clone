@@ -6,7 +6,6 @@ import { GridItemEight, GridItemFour, GridLayout } from '@components/UI/GridLayo
 import { Tab } from '@headlessui/react';
 import { Analytics } from '@lib/analytics';
 import isFeatureEnabled from '@lib/isFeatureEnabled';
-import { t } from '@lingui/macro';
 import clsx from 'clsx';
 import { APP_NAME, STATIC_IMAGES_URL } from 'data/constants';
 import { PublicationSortCriteria } from 'lens';
@@ -24,10 +23,10 @@ const Explore: NextPage = () => {
   const router = useRouter();
 
   const tabs = [
-    { name: t`For you`, emoji: 'leaf-fluttering-in-wind.png', type: PublicationSortCriteria.CuratedProfiles },
-    { name: t`Popular`, emoji: 'hundred-points.png', type: PublicationSortCriteria.TopCommented },
-    { name: t`Trending`, emoji: 'heart-on-fire.png', type: PublicationSortCriteria.TopCollected },
-    { name: t`Interesting`, emoji: 'hushed-face.png', type: PublicationSortCriteria.TopMirrored }
+    { name: `For you`, emoji: 'leaf-fluttering-in-wind.png', type: PublicationSortCriteria.CuratedProfiles },
+    { name: `Popular`, emoji: 'hundred-points.png', type: PublicationSortCriteria.TopCommented },
+    { name: `Trending`, emoji: 'heart-on-fire.png', type: PublicationSortCriteria.TopCollected },
+    { name: `Interesting`, emoji: 'hushed-face.png', type: PublicationSortCriteria.TopMirrored }
   ];
 
   return (

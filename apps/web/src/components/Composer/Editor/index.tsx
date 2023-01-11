@@ -10,7 +10,6 @@ import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { MarkdownShortcutPlugin } from '@lexical/react/LexicalMarkdownShortcutPlugin';
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
-import { t, Trans } from '@lingui/macro';
 import { ERROR_MESSAGE } from 'data/constants';
 import type { FC } from 'react';
 import { toast } from 'react-hot-toast';
@@ -27,7 +26,7 @@ const Editor: FC = () => {
 
   const handlePaste = async (pastedFiles: FileList) => {
     if (attachments.length === 4 || attachments.length + pastedFiles.length > 4) {
-      return toast.error(t`Please choose either 1 video or up to 4 photos.`);
+      return toast.error(`Please choose either 1 video or up to 4 photos.`);
     }
     if (pastedFiles) {
       await handleUploadAttachments(pastedFiles);
@@ -41,7 +40,7 @@ const Editor: FC = () => {
         contentEditable={<ContentEditable className="px-5 block my-4 min-h-[65px] overflow-auto" />}
         placeholder={
           <div className="px-5 absolute top-[65px] text-gray-400 pointer-events-none whitespace-nowrap">
-            <Trans>What's happening?</Trans>
+            What's happening
           </div>
         }
         ErrorBoundary={() => <div>{ERROR_MESSAGE}</div>}

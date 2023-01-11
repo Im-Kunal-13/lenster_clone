@@ -1,5 +1,4 @@
 import WalletSelector from '@components/Shared/Login/WalletSelector';
-import { Trans } from '@lingui/macro';
 import { APP_NAME, IS_MAINNET, STATIC_IMAGES_URL } from 'data/constants';
 import type { FC } from 'react';
 import { useState } from 'react';
@@ -17,19 +16,19 @@ const Login: FC = () => {
           {hasConnected ? (
             <div className="space-y-1">
               <div className="text-xl font-bold">
-                <Trans>Please sign the message</Trans>.
+                Please sign the message
               </div>
               <div className="text-sm lt-text-gray-500">
-                <Trans>{APP_NAME} uses this signature to verify that you're the owner of this address.</Trans>
+                {APP_NAME} uses this signature to verify that you're the owner of this address.
               </div>
             </div>
           ) : (
             <div className="space-y-1">
               <div className="text-xl font-bold">
-                <Trans>Connect your wallet</Trans>.
+                Connect your wallet.
               </div>
               <div className="text-sm lt-text-gray-500">
-                <Trans>Connect with one of our available wallet providers or create a new one.</Trans>
+                DConnect with one of our available wallet providers or create a new one.
               </div>
             </div>
           )}

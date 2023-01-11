@@ -20,7 +20,6 @@ import getAvatar from '@lib/getAvatar';
 import isGardener from '@lib/isGardener';
 import isStaff from '@lib/isStaff';
 import resetAuthData from '@lib/resetAuthData';
-import { Trans } from '@lingui/macro';
 import clsx from 'clsx';
 import { APP_VERSION } from 'data/constants';
 import type { Profile } from 'lens';
@@ -88,7 +87,7 @@ const SignedUser: FC = () => {
             className={({ active }: { active: boolean }) => clsx({ 'dropdown-active': active }, 'menu-item')}
           >
             <div>
-              <Trans>Logged in as</Trans>
+              Logged in as
             </div>
             <div className="truncate">
               <Slug className="font-bold" slug={formatHandle(currentProfile?.handle)} prefix="@" />
@@ -112,7 +111,7 @@ const SignedUser: FC = () => {
                 <>
                   <EmojiHappyIcon className="w-4 h-4" />
                   <span>
-                    <Trans>Set status</Trans>
+                    Set status
                   </span>
                 </>
               )}
@@ -127,7 +126,7 @@ const SignedUser: FC = () => {
             <div className="flex items-center space-x-1.5">
               <UserIcon className="w-4 h-4" />
               <div>
-                <Trans>Your Profile</Trans>
+                Your Profile
               </div>
             </div>
           </Menu.Item>
@@ -139,7 +138,7 @@ const SignedUser: FC = () => {
             <div className="flex items-center space-x-1.5">
               <CogIcon className="w-4 h-4" />
               <div>
-                <Trans>Settings</Trans>
+                Settings
               </div>
             </div>
           </Menu.Item>
@@ -154,7 +153,7 @@ const SignedUser: FC = () => {
               <div className="flex items-center space-x-1.5">
                 <ShieldCheckIcon className="w-4 h-4" />
                 <div>
-                  <Trans>Moderation</Trans>
+                  Moderation
                 </div>
               </div>
             </Menu.Item>
@@ -167,7 +166,7 @@ const SignedUser: FC = () => {
             <div className="flex items-center space-x-1.5">
               <LogoutIcon className="w-4 h-4" />
               <div>
-                <Trans>Logout</Trans>
+                Logout
               </div>
             </div>
           </Menu.Item>
@@ -178,7 +177,7 @@ const SignedUser: FC = () => {
                 <div className="flex items-center px-4 pt-1 pb-2 space-x-1.5 text-sm font-bold lt-text-gray-500">
                   <SwitchHorizontalIcon className="w-4 h-4" />
                   <div>
-                    <Trans>Switch to</Trans>
+                    Switch to
                   </div>
                 </div>
                 {profiles.map((profile: Profile, index) => (
@@ -227,14 +226,14 @@ const SignedUser: FC = () => {
                 <>
                   <MoonIcon className="w-4 h-4" />
                   <div>
-                    <Trans>Dark mode</Trans>
+                    Dark mode
                   </div>
                 </>
               ) : (
                 <>
                   <SunIcon className="w-4 h-4" />
                   <div>
-                    <Trans>Light mode</Trans>
+                    Light mode
                   </div>
                 </>
               )}
@@ -266,14 +265,14 @@ const SignedUser: FC = () => {
                 {staffMode ? (
                   <div className="flex items-center space-x-1.5">
                     <div>
-                      <Trans>Disable staff mode</Trans>
+                      Disable staff mode
                     </div>
                     <ShieldExclamationIcon className="w-4 h-4 text-green-600" />
                   </div>
                 ) : (
                   <div className="flex items-center space-x-1.5">
                     <div>
-                      <Trans>Enable staff mode</Trans>
+                      Enable staff mode
                     </div>
                     <ShieldCheckIcon className="w-4 h-4 text-red-500" />
                   </div>

@@ -9,7 +9,6 @@ import formatHandle from '@lib/formatHandle';
 import getSignature from '@lib/getSignature';
 import onError from '@lib/onError';
 import splitSignature from '@lib/splitSignature';
-import { t, Trans } from '@lingui/macro';
 import { LensHubProxy } from 'abis';
 import { APP_NAME, LENSHUB_PROXY, SIGN_WALLET } from 'data/constants';
 import type { Profile } from 'lens';
@@ -32,7 +31,7 @@ const SetProfile: FC = () => {
   const { isLoading: signLoading, signTypedDataAsync } = useSignTypedData({ onError });
 
   const onCompleted = () => {
-    toast.success(t`Default profile updated successfully!`);
+    toast.success(`Default profile updated successfully!`);
     Analytics.track(SETTINGS.ACCOUNT.SET_DEFAULT_PROFILE);
   };
 
@@ -109,11 +108,11 @@ const SetProfile: FC = () => {
 
   return (
     <Card className="space-y-5 p-5">
-      {error && <ErrorMessage title={t`Transaction failed!`} error={error} />}
+      {error && <ErrorMessage title={`Transaction failed!`} error={error} />}
       {hasDefaultProfile ? (
         <>
           <div className="text-lg font-bold">
-            <Trans>Your default profile</Trans>
+            Your default profile
           </div>
           <UserProfile profile={sortedProfiles[0]} />
         </>
@@ -121,35 +120,35 @@ const SetProfile: FC = () => {
         <div className="flex items-center space-x-1.5 font-bold text-yellow-500">
           <ExclamationIcon className="w-5 h-5" />
           <div>
-            <Trans>You don't have any default profile set!</Trans>
+            You don't have any default profile set!
           </div>
         </div>
       )}
       <div className="text-lg font-bold">
-        <Trans>Select default profile</Trans>
+        Select default profile
       </div>
       <p>
-        <Trans>
+        
           Selecting your default account helps to display the selected profile across {APP_NAME}, you can
           change your default profile anytime.
-        </Trans>
+        
       </p>
       <div className="text-lg font-bold">
-        <Trans>What else you should know</Trans>
+        What else you should know
       </div>
       <div className="text-sm lt-text-gray-500 divide-y dark:divide-gray-700">
         <p className="pb-3">
-          <Trans>
+          
             Only the default profile will be visible across the {APP_NAME}, example notifications, follow etc.
-          </Trans>
+          
         </p>
         <p className="py-3">
-          <Trans>You can change default profile anytime here.</Trans>
+          You can change default profile anytime here.
         </p>
       </div>
       <div>
         <div className="label">
-          <Trans>Select profile</Trans>
+          Select profile
         </div>
         <select
           className="w-full bg-white rounded-xl border border-gray-300 outline-none dark:bg-gray-800 disabled:bg-gray-500 disabled:bg-opacity-20 disabled:opacity-60 dark:border-gray-700 focus:border-brand-500 focus:ring-brand-400"
@@ -169,7 +168,7 @@ const SetProfile: FC = () => {
         onClick={setDefaultProfile}
         icon={isLoading ? <Spinner size="xs" /> : <PencilIcon className="w-4 h-4" />}
       >
-        <Trans>Save</Trans>
+        Save
       </Button>
     </Card>
   );

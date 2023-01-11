@@ -8,7 +8,6 @@ import hasGm from '@lib/hasGm';
 import { publicationKeyFields } from '@lib/keyFields';
 import nFormatter from '@lib/nFormatter';
 import onError from '@lib/onError';
-import { t } from '@lingui/macro';
 import clsx from 'clsx';
 import { SIGN_WALLET } from 'data/constants';
 import { motion } from 'framer-motion';
@@ -120,7 +119,7 @@ const Like: FC<Props> = ({ publication, isFullPublication }) => {
             'p-1.5 rounded-full hover:bg-opacity-20'
           )}
         >
-          <Tooltip placement="top" content={liked ? t`Dislike` : t`Like`} withDelay>
+          <Tooltip placement="top" content={liked ? `Dislike` : `Like`} withDelay>
             {liked ? (
               isGM ? (
                 <SunIconSolid className={iconClassName} />

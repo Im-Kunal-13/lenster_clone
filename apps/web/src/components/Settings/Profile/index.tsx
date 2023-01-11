@@ -3,7 +3,6 @@ import { Card } from '@components/UI/Card';
 import { GridItemEight, GridItemFour, GridLayout } from '@components/UI/GridLayout';
 import { PageLoading } from '@components/UI/PageLoading';
 import { PhotographIcon } from '@heroicons/react/outline';
-import { t } from '@lingui/macro';
 import clsx from 'clsx';
 import { APP_NAME } from 'data/constants';
 import { useProfileSettingsQuery } from 'lens';
@@ -37,7 +36,7 @@ const ProfileSettings: NextPage = () => {
   }
 
   if (loading) {
-    return <PageLoading message={t`Loading settings`} />;
+    return <PageLoading message={`Loading settings`} />;
   }
 
   if (!currentProfile) {

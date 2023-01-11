@@ -1,7 +1,6 @@
 import Slug from '@components/Shared/Slug';
 import { HeartIcon } from '@heroicons/react/solid';
 import formatHandle from '@lib/formatHandle';
-import { Trans } from '@lingui/macro';
 import type { ElectedMirror, Mirror } from 'lens';
 import type { FC } from 'react';
 
@@ -23,9 +22,9 @@ const ReferralAlert: FC<Props> = ({ mirror, electedMirror, referralFee = 0 }) =>
       <Slug slug={formatHandle(publication?.profile?.handle)} prefix="@" />
       <span>
         {' '}
-        <Trans>
+        
           will get <b>{referralFee}%</b> referral fee
-        </Trans>
+        
       </span>
     </div>
   );

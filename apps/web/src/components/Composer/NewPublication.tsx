@@ -21,7 +21,6 @@ import getUserLocale from '@lib/getUserLocale';
 import onError from '@lib/onError';
 import splitSignature from '@lib/splitSignature';
 import uploadToArweave from '@lib/uploadToArweave';
-import { t } from '@lingui/macro';
 import { LensHubProxy } from 'abis';
 import clsx from 'clsx';
 import {
@@ -470,12 +469,12 @@ const NewPublication: FC<Props> = ({ publication }) => {
           selectedReferenceModule === ReferenceModules.FollowerOnlyReferenceModule
             ? { followerOnlyReferenceModule: onlyFollowers ? true : false }
             : {
-                degreesOfSeparationReferenceModule: {
-                  commentsRestricted: true,
-                  mirrorsRestricted: true,
-                  degreesOfSeparation
-                }
+              degreesOfSeparationReferenceModule: {
+                commentsRestricted: true,
+                mirrorsRestricted: true,
+                degreesOfSeparation
               }
+            }
       };
 
       if (currentProfile?.dispatcher?.canUseRelay) {
@@ -514,7 +513,7 @@ const NewPublication: FC<Props> = ({ publication }) => {
 
   return (
     <Card className={clsx({ 'border-none rounded-none': !isComment }, 'pb-3')}>
-      {error && <ErrorMessage className="mb-3" title={t`Transaction failed!`} error={error} />}
+      {error && <ErrorMessage className="mb-3" title={`Transaction failed!`} error={error} />}
       <Editor />
       {publicationContentError && (
         <div className="px-5 pb-3 mt-1 text-sm font-bold text-red-500">{publicationContentError}</div>
@@ -542,8 +541,8 @@ const NewPublication: FC<Props> = ({ publication }) => {
             onClick={createPublication}
           >
             {isComment
-              ? t({ id: '[cta]Comment', message: 'Comment' })
-              : t({ id: '[cta]Post', message: 'Post' })}
+              ? 'Comment'
+              : 'Post'}
           </Button>
         </div>
       </div>

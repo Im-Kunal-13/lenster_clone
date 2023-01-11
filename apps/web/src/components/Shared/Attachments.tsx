@@ -5,7 +5,6 @@ import { ExternalLinkIcon, XIcon } from '@heroicons/react/outline';
 import { Analytics } from '@lib/analytics';
 import getIPFSLink from '@lib/getIPFSLink';
 import imageProxy from '@lib/imageProxy';
-import { Trans } from '@lingui/macro';
 import clsx from 'clsx';
 import { ALLOWED_AUDIO_TYPES, ALLOWED_VIDEO_TYPES, ATTACHMENT } from 'data/constants';
 import type { MediaSet } from 'lens';
@@ -111,7 +110,7 @@ const Attachments: FC<Props> = ({
                   onClick={() => window.open(url, '_blank')}
                 >
                   <span>
-                    <Trans>Open Image in new tab</Trans>
+                    Open Image in new tab
                   </span>
                 </Button>
               ) : ALLOWED_VIDEO_TYPES.includes(type) ? (

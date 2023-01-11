@@ -12,7 +12,6 @@ import getSignature from '@lib/getSignature';
 import onError from '@lib/onError';
 import resetAuthData from '@lib/resetAuthData';
 import splitSignature from '@lib/splitSignature';
-import { t, Trans } from '@lingui/macro';
 import { LensHubProxy } from 'abis';
 import { APP_NAME, LENSHUB_PROXY, SIGN_WALLET } from 'data/constants';
 import { useCreateBurnProfileTypedDataMutation } from 'lens';
@@ -99,28 +98,28 @@ const DeleteSettings: FC = () => {
         <Card className="space-y-5 p-5">
           <UserProfile profile={currentProfile} />
           <div className="text-lg font-bold text-red-500">
-            <Trans>This will deactivate your account</Trans>
+            This will deactivate your account
           </div>
           <p>
-            <Trans>
+            
               Deleting your account is permanent. All your data will be wiped out immediately and you won't be
               able to get it back.
-            </Trans>
+            
           </p>
           <div className="text-lg font-bold">What else you should know</div>
           <div className="text-sm lt-text-gray-500 divide-y dark:divide-gray-700">
             <p className="pb-3">
-              <Trans>
+              
                 You cannot restore your {APP_NAME} account if it was accidentally or wrongfully deleted.
-              </Trans>
+              
             </p>
             <p className="py-3">
-              <Trans>
+              
                 Some account information may still be available in search engines, such as Google or Bing.
-              </Trans>
+              
             </p>
             <p className="py-3">
-              <Trans>Your @handle will be released immediately after deleting the account.</Trans>
+              Your @handle will be released immediately after deleting the account.
             </p>
           </div>
           <Button
@@ -129,10 +128,10 @@ const DeleteSettings: FC = () => {
             disabled={isDeleting}
             onClick={() => setShowWarningModal(true)}
           >
-            {isDeleting ? t`Deleting...` : t`Delete your account`}
+            {isDeleting ? `Deleting...` : `Delete your account`}
           </Button>
           <Modal
-            title={t`Danger Zone`}
+            title={`Danger Zone`}
             icon={<ExclamationIcon className="w-5 h-5 text-red-500" />}
             show={showWarningModal}
             onClose={() => setShowWarningModal(false)}
@@ -142,9 +141,9 @@ const DeleteSettings: FC = () => {
                 title="Are you sure?"
                 message={
                   <div className="leading-6">
-                    <Trans>
+                    
                       Confirm that you have read all consequences and want to delete your account anyway
-                    </Trans>
+                    
                   </div>
                 }
               />
@@ -156,7 +155,7 @@ const DeleteSettings: FC = () => {
                   handleDelete();
                 }}
               >
-                <Trans>Yes, delete my account</Trans>
+                Yes, delete my account
               </Button>
             </div>
           </Modal>

@@ -3,7 +3,6 @@ import { Card } from '@components/UI/Card';
 import { GridItemEight, GridItemFour, GridLayout } from '@components/UI/GridLayout';
 import { PageLoading } from '@components/UI/PageLoading';
 import { Spinner } from '@components/UI/Spinner';
-import { t, Trans } from '@lingui/macro';
 import { APP_NAME, DEFAULT_COLLECT_TOKEN } from 'data/constants';
 import type { Erc20 } from 'lens';
 import { CollectModules, FollowModules, ReferenceModules, useApprovedModuleAllowanceAmountQuery } from 'lens';
@@ -47,7 +46,7 @@ const AllowanceSettings: NextPage = () => {
   }
 
   if (loading) {
-    return <PageLoading message={t`Loading settings`} />;
+    return <PageLoading message={`Loading settings`} />;
   }
 
   if (!currentProfile) {
@@ -65,17 +64,17 @@ const AllowanceSettings: NextPage = () => {
           <div className="mx-5 mt-5">
             <div className="space-y-5">
               <div className="text-lg font-bold">
-                <Trans>Allow / Revoke modules</Trans>
+                Allow / Revoke modules
               </div>
               <p>
-                <Trans>
+                
                   In order to use collect feature you need to allow the module you use, you can allow and
                   revoke the module anytime.
-                </Trans>
+                
               </p>
             </div>
             <div className="mt-6 label">
-              <Trans>Select Currency</Trans>
+              Select Currency
             </div>
             <select
               className="w-full bg-white rounded-xl border border-gray-300 outline-none dark:bg-gray-800 disabled:bg-gray-500 disabled:bg-opacity-20 disabled:opacity-60 dark:border-gray-700 focus:border-brand-500 focus:ring-brand-400"
@@ -97,7 +96,7 @@ const AllowanceSettings: NextPage = () => {
             <div className="py-10 space-y-3 text-center">
               <Spinner className="mx-auto" />
               <div>
-                <Trans>Loading allowance data!</Trans>
+                Loading allowance data!
               </div>
             </div>
           ) : (

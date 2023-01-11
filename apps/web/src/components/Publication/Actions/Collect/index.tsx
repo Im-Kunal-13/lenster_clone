@@ -9,7 +9,6 @@ import { Analytics } from '@lib/analytics';
 import { getModule } from '@lib/getModule';
 import humanize from '@lib/humanize';
 import nFormatter from '@lib/nFormatter';
-import { t } from '@lingui/macro';
 import { motion } from 'framer-motion';
 import type { ElectedMirror } from 'lens';
 import { CollectModules } from 'lens';
@@ -19,7 +18,7 @@ import { useEffect, useState } from 'react';
 import { PUBLICATION } from 'src/tracking';
 
 const CollectModule = dynamic(() => import('./CollectModule'), {
-  loading: () => <Loader message={t`Loading collect`} />
+  loading: () => <Loader message={`Loading collect`} />
 });
 
 interface Props {
@@ -80,9 +79,9 @@ const Collect: FC<Props> = ({ publication, isFullPublication, electedMirror }) =
       <Modal
         title={
           isFreeCollect
-            ? t`Free Collect`
+            ? `Free Collect`
             : isUnknownCollect
-            ? t`Unknown Collect`
+            ? `Unknown Collect`
             : getModule(publication?.collectModule?.type).name
         }
         icon={

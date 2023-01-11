@@ -3,7 +3,6 @@ import { Modal } from '@components/UI/Modal';
 import { Tooltip } from '@components/UI/Tooltip';
 import { LockClosedIcon } from '@heroicons/react/outline';
 import { Analytics } from '@lib/analytics';
-import { t, Trans } from '@lingui/macro';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import type { FC } from 'react';
@@ -38,10 +37,10 @@ const AccessSettings: FC = () => {
         title={
           <div className="flex items-center space-x-2">
             <span>
-              <Trans>Access settings</Trans>
+              Access settings
             </span>
             <HelpTooltip
-              content={t`Add restrictions on who can view your content, and who can't. For instance - token gate your posts on the condition of owning specific NFTs or tokens.`}
+              content={`Add restrictions on who can view your content, and who can't. For instance - token gate your posts on the condition of owning specific NFTs or tokens.`}
             />
           </div>
         }

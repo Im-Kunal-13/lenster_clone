@@ -11,7 +11,6 @@ import getSignature from '@lib/getSignature';
 import getTokenImage from '@lib/getTokenImage';
 import onError from '@lib/onError';
 import splitSignature from '@lib/splitSignature';
-import { t, Trans } from '@lingui/macro';
 import { LensHubProxy } from 'abis';
 import { LENSHUB_PROXY, POLYGONSCAN_URL, SIGN_WALLET } from 'data/constants';
 import type { Profile } from 'lens';
@@ -51,7 +50,7 @@ const FollowModule: FC<Props> = ({ profile, setFollowing, setShowFollowModal, ag
   const onCompleted = () => {
     setFollowing(true);
     setShowFollowModal(false);
-    toast.success(t`Followed successfully!`);
+    toast.success(`Followed successfully!`);
     Analytics.track(PROFILE.SUPER_FOLLOW);
   };
 
@@ -151,11 +150,11 @@ const FollowModule: FC<Props> = ({ profile, setFollowing, setShowFollowModal, ag
           }
         }
       });
-    } catch {}
+    } catch { }
   };
 
   if (loading) {
-    return <Loader message={t`Loading super follow`} />;
+    return <Loader message={`Loading super follow`} />;
   }
 
   return (
@@ -184,7 +183,7 @@ const FollowModule: FC<Props> = ({ profile, setFollowing, setShowFollowModal, ag
         <UserIcon className="w-4 h-4 lt-text-gray-500" />
         <div className="space-x-1.5">
           <span>
-            <Trans>Recipient:</Trans>
+            Recipient
           </span>
           <a
             href={`${POLYGONSCAN_URL}/address/${followModule?.recipient}`}
@@ -202,31 +201,31 @@ const FollowModule: FC<Props> = ({ profile, setFollowing, setShowFollowModal, ag
           <li className="flex space-x-2 tracking-normal leading-6">
             <div>•</div>
             <div>
-              <Trans>You can comment on @{formatHandle(profile?.handle)}'s publications</Trans>
+              You can comment on @{formatHandle(profile?.handle)}'s publications
             </div>
           </li>
           <li className="flex space-x-2 tracking-normal leading-6">
             <div>•</div>
             <div>
-              <Trans>You can collect @{formatHandle(profile?.handle)}'s publications</Trans>
+              You can collect @{formatHandle(profile?.handle)}'s publications
             </div>
           </li>
           <li className="flex space-x-2 tracking-normal leading-6">
             <div>•</div>
             <div>
-              <Trans>You will get super follow badge in @{formatHandle(profile?.handle)}'s profile</Trans>
+              You will get super follow badge in @{formatHandle(profile?.handle)}'s profile
             </div>
           </li>
           <li className="flex space-x-2 tracking-normal leading-6">
             <div>•</div>
             <div>
-              <Trans>You will have high voting power if you followed multiple times</Trans>
+              You will have high voting power if you followed multiple times
             </div>
           </li>
           <li className="flex space-x-2 tracking-normal leading-6">
             <div>•</div>
             <div>
-              <Trans>More coming soon™</Trans>
+              More coming soon™
             </div>
           </li>
         </ul>
@@ -250,7 +249,7 @@ const FollowModule: FC<Props> = ({ profile, setFollowing, setShowFollowModal, ag
                 )
               }
             >
-              {again ? t`Super follow again` : t`Super follow now`}
+              {again ? `Super follow again` : `Super follow now`}
             </Button>
           ) : (
             <WarningMessage
@@ -261,7 +260,7 @@ const FollowModule: FC<Props> = ({ profile, setFollowing, setShowFollowModal, ag
         ) : (
           <div className="mt-5">
             <AllowanceButton
-              title={t`Allow follow module`}
+              title={`Allow follow module`}
               module={allowanceData?.approvedModuleAllowanceAmount[0]}
               allowed={allowed}
               setAllowed={setAllowed}

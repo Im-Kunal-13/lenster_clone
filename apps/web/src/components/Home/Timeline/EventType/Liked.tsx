@@ -1,5 +1,4 @@
 import { HeartIcon } from '@heroicons/react/outline';
-import { t } from '@lingui/macro';
 import type { ReactionEvent } from 'lens';
 import type { FC } from 'react';
 
@@ -21,7 +20,7 @@ const Liked: FC<Props> = ({ reactions }) => {
   return (
     <div className={'flex items-center pb-4 space-x-1 lt-text-gray-500 text-[13px]'}>
       <HeartIcon className="w-4 h-4" />
-      <ProfileCircles profiles={getLikedProfiles()} context={t`Liked by`} />
+      <ProfileCircles profiles={getLikedProfiles()} context={`Liked by`} />
     </div>
   );
 };

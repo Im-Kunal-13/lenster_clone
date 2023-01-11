@@ -7,7 +7,6 @@ import { Modal } from '@components/UI/Modal';
 import { DotsCircleHorizontalIcon, UsersIcon } from '@heroicons/react/outline';
 import { SparklesIcon } from '@heroicons/react/solid';
 import { Analytics } from '@lib/analytics';
-import { t, Trans } from '@lingui/macro';
 import type { Profile } from 'lens';
 import { useRecommendedProfilesQuery } from 'lens';
 import type { FC } from 'react';
@@ -21,7 +20,7 @@ const Title = () => {
     <div className="flex gap-2 items-center px-5 mb-2 sm:px-0">
       <SparklesIcon className="w-4 h-4 text-yellow-500" />
       <div>
-        <Trans>Who to follow</Trans>
+        Who to follow
       </div>
     </div>
   );
@@ -52,7 +51,7 @@ const RecommendedProfiles: FC = () => {
     return (
       <>
         <Title />
-        <EmptyState message={t`No recommendations!`} icon={<UsersIcon className="w-8 h-8 text-brand" />} />
+        <EmptyState message={`No recommendations!`} icon={<UsersIcon className="w-8 h-8 text-brand" />} />
       </>
     );
   }
@@ -62,7 +61,7 @@ const RecommendedProfiles: FC = () => {
       <Title />
       <Card as="aside">
         <div className="space-y-4 p-5">
-          <ErrorMessage title={t`Failed to load recommendations`} error={error} />
+          <ErrorMessage title={`Failed to load recommendations`} error={error} />
           {data?.recommendedProfiles?.slice(0, 5)?.map((profile) => (
             <div key={profile?.id} className="truncate">
               <UserProfile profile={profile as Profile} isFollowing={profile.isFollowedByMe} showFollow />
@@ -79,12 +78,12 @@ const RecommendedProfiles: FC = () => {
         >
           <DotsCircleHorizontalIcon className="h-4 w-4" />
           <span>
-            <Trans>Show more</Trans>
+            Show more
           </span>
         </button>
       </Card>
       <Modal
-        title={t`Suggested for you`}
+        title={`Suggested for you`}
         icon={<UsersIcon className="w-5 h-5 text-brand" />}
         show={showSuggestedModal}
         onClose={() => setShowSuggestedModal(false)}

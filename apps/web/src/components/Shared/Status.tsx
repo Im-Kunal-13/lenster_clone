@@ -10,7 +10,6 @@ import getSignature from '@lib/getSignature';
 import onError from '@lib/onError';
 import splitSignature from '@lib/splitSignature';
 import uploadToArweave from '@lib/uploadToArweave';
-import { t, Trans } from '@lingui/macro';
 import { LensPeriphery } from 'abis';
 import { APP_NAME, LENS_PERIPHERY, SIGN_WALLET } from 'data/constants';
 import type { CreatePublicSetProfileMetadataUriRequest } from 'lens';
@@ -34,8 +33,8 @@ import Loader from './Loader';
 
 const editStatusSchema = object({
   status: string()
-    .min(1, { message: t`Status should not be empty` })
-    .max(100, { message: t`Status should not exceed 100 characters` })
+    .min(1, { message: `Status should not be empty` })
+    .max(100, { message: `Status should not exceed 100 characters` })
 });
 
 const Status: FC = () => {
@@ -58,7 +57,7 @@ const Status: FC = () => {
   });
 
   const onCompleted = () => {
-    toast.success(t`Status updated successfully!`);
+    toast.success(`Status updated successfully!`);
   };
 
   const { isLoading: signLoading, signTypedDataAsync } = useSignTypedData({ onError });
@@ -160,19 +159,19 @@ const Status: FC = () => {
       return await createSetProfileMetadataTypedData({
         variables: { request }
       });
-    } catch {}
+    } catch { }
   };
 
   if (loading) {
     return (
       <div className="p-5">
-        <Loader message={t`Loading status settings`} />
+        <Loader message={`Loading status settings`} />
       </div>
     );
   }
 
   if (error) {
-    return <ErrorMessage title={t`Failed to load status settings`} error={error} />;
+    return <ErrorMessage title={`Failed to load status settings`} error={error} />;
   }
 
   const isLoading =
@@ -190,7 +189,7 @@ const Status: FC = () => {
       >
         <Input
           prefix={<EmojiPicker emoji={emoji} setEmoji={setEmoji} />}
-          placeholder={t`What's happening?`}
+          placeholder={`What's happening?`}
           {...form.register('status')}
         />
         <div className="flex items-center space-x-2 ml-auto">
@@ -206,14 +205,14 @@ const Status: FC = () => {
               Analytics.track(SETTINGS.PROFILE.CLEAR_STATUS);
             }}
           >
-            <Trans>Clear status</Trans>
+            Clear status
           </Button>
           <Button
             type="submit"
             disabled={isLoading}
             icon={isLoading ? <Spinner size="xs" /> : <PencilIcon className="w-4 h-4" />}
           >
-            <Trans>Save</Trans>
+            Save
           </Button>
         </div>
       </Form>

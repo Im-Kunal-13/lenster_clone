@@ -3,7 +3,6 @@ import { Card } from '@components/UI/Card';
 import { MinusCircleIcon, PencilAltIcon, PhotographIcon } from '@heroicons/react/outline';
 import { CheckCircleIcon } from '@heroicons/react/solid';
 import { Analytics } from '@lib/analytics';
-import { t, Trans } from '@lingui/macro';
 import clsx from 'clsx';
 import { APP_NAME } from 'data/constants';
 import Link from 'next/link';
@@ -49,13 +48,13 @@ const SetProfile: FC = () => {
       <div className="flex items-center space-x-2 font-bold">
         <PhotographIcon className="w-5 h-5" />
         <p>
-          <Trans>Setup your {APP_NAME} profile</Trans>
+          Setup your {APP_NAME} profile
         </p>
       </div>
       <div className="space-y-1 text-sm leading-[22px]">
-        <Status finished={Boolean(currentProfile?.name)} title={t`Set profile name`} />
-        <Status finished={Boolean(currentProfile?.bio)} title={t`Set profile bio`} />
-        <Status finished={Boolean(currentProfile?.picture)} title={t`Set your avatar`} />
+        <Status finished={Boolean(currentProfile?.name)} title={`Set profile name`} />
+        <Status finished={Boolean(currentProfile?.bio)} title={`Set profile bio`} />
+        <Status finished={Boolean(currentProfile?.picture)} title={`Set your avatar`} />
         <div>
           <Link
             className="flex items-center space-x-2"
@@ -64,7 +63,7 @@ const SetProfile: FC = () => {
           >
             <Status
               finished={Boolean(currentProfile?.interests?.length)}
-              title={t`Select profile interests`}
+              title={`Select profile interests`}
             />
             <New />
           </Link>
@@ -73,7 +72,7 @@ const SetProfile: FC = () => {
       <div className="flex items-center space-x-1.5 text-sm font-bold">
         <PencilAltIcon className="w-4 h-4" />
         <Link onClick={() => Analytics.track(MISCELLANEOUS.NAVIGATE_UPDATE_PROFILE)} href="/settings">
-          <Trans>Update profile now</Trans>
+          Update profile now
         </Link>
       </div>
     </Card>

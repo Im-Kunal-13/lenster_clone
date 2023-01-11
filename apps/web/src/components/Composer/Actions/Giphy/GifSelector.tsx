@@ -4,7 +4,6 @@ import type { ICategory } from '@giphy/js-fetch-api';
 import { GiphyFetch } from '@giphy/js-fetch-api';
 import type { IGif } from '@giphy/js-types';
 import { Grid } from '@giphy/react-components';
-import { t, Trans } from '@lingui/macro';
 import type { ChangeEvent, Dispatch, FC } from 'react';
 import { useEffect, useState } from 'react';
 
@@ -59,7 +58,7 @@ const GifSelector: FC<Props> = ({ setShowModal, setGifAttachment }) => {
       <div className="m-3">
         <Input
           type="text"
-          placeholder={t`Search for GIFs`}
+          placeholder={`Search for GIFs`}
           value={debouncedGifInput}
           onChange={handleSearch}
         />
@@ -74,7 +73,7 @@ const GifSelector: FC<Props> = ({ setShowModal, setGifAttachment }) => {
             columns={3}
             noResultsMessage={
               <div className="grid place-items-center h-full">
-                <Trans>No GIFs found.</Trans>
+                No GIFs found
               </div>
             }
             noLink

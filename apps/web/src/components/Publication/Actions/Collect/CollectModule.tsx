@@ -32,7 +32,6 @@ import getTokenImage from '@lib/getTokenImage';
 import humanize from '@lib/humanize';
 import onError from '@lib/onError';
 import splitSignature from '@lib/splitSignature';
-import { t, Trans } from '@lingui/macro';
 import { useQuery } from '@tanstack/react-query';
 import { LensHubProxy, UpdateOwnableFeeCollectModule } from 'abis';
 import { LENSHUB_PROXY, POLYGONSCAN_URL, SIGN_WALLET } from 'data/constants';
@@ -239,7 +238,7 @@ const CollectModule: FC<Props> = ({ count, setCount, publication, electedMirror 
   };
 
   if (loading || revenueLoading) {
-    return <Loader message={t`Loading collect`} />;
+    return <Loader message={`Loading collect`} />;
   }
 
   const isLoading =
@@ -326,10 +325,10 @@ const CollectModule: FC<Props> = ({ count, setCount, publication, electedMirror 
                   Analytics.track(PUBLICATION.COLLECT_MODULE.OPEN_COLLECTORS);
                 }}
               >
-                <Trans>{humanize(count)} collectors</Trans>
+                {humanize(count)} collectors
               </button>
               <Modal
-                title={t`Collected by`}
+                title={`Collected by`}
                 icon={<CollectionIcon className="w-5 h-5 text-brand" />}
                 show={showCollectorsModal}
                 onClose={() => setShowCollectorsModal(false)}
@@ -345,7 +344,7 @@ const CollectModule: FC<Props> = ({ count, setCount, publication, electedMirror 
               <div className="flex items-center space-x-2">
                 <PhotographIcon className="w-4 h-4 lt-text-gray-500" />
                 <div className="font-bold">
-                  <Trans>{parseInt(collectModule?.collectLimit) - count} available</Trans>
+                  {parseInt(collectModule?.collectLimit) - count} available
                 </div>
               </div>
             )}
@@ -353,7 +352,7 @@ const CollectModule: FC<Props> = ({ count, setCount, publication, electedMirror 
               <div className="flex items-center space-x-2">
                 <CashIcon className="w-4 h-4 lt-text-gray-500" />
                 <div className="font-bold">
-                  <Trans>{collectModule.referralFee}% referral fee</Trans>
+                  {collectModule.referralFee}% referral fee
                 </div>
               </div>
             ) : null}
@@ -363,7 +362,7 @@ const CollectModule: FC<Props> = ({ count, setCount, publication, electedMirror 
               <CashIcon className="w-4 h-4 lt-text-gray-500" />
               <div className="flex items-center space-x-1.5">
                 <span>
-                  <Trans>Revenue:</Trans>
+                  Revenue:
                 </span>
                 <span className="flex items-center space-x-1">
                   <img
@@ -395,7 +394,7 @@ const CollectModule: FC<Props> = ({ count, setCount, publication, electedMirror 
               <ClockIcon className="w-4 h-4 lt-text-gray-500" />
               <div className="space-x-1.5">
                 <span>
-                  <Trans>Sale Ends:</Trans>
+                  Sale Ends:
                 </span>
                 <span className="font-bold text-gray-600" title={formatTime(collectModule.endTimestamp)}>
                   {dayjs(collectModule.endTimestamp).format('MMMM DD, YYYY')} at{' '}
@@ -409,7 +408,7 @@ const CollectModule: FC<Props> = ({ count, setCount, publication, electedMirror 
               <PuzzleIcon className="w-4 h-4 lt-text-gray-500" />
               <div className="space-x-1.5">
                 <span>
-                  <Trans>Token:</Trans>
+                  Token:
                 </span>
                 <a
                   href={`${POLYGONSCAN_URL}/token/${data?.publication?.collectNftAddress}`}
@@ -434,7 +433,7 @@ const CollectModule: FC<Props> = ({ count, setCount, publication, electedMirror 
                   disabled={isLoading}
                   icon={isLoading ? <Spinner size="xs" /> : <CollectionIcon className="w-4 h-4" />}
                 >
-                  <Trans>Collect now</Trans>
+                  Collect now
                 </Button>
               ) : (
                 <WarningMessage message={<Uniswap module={collectModule} />} />
@@ -453,7 +452,7 @@ const CollectModule: FC<Props> = ({ count, setCount, publication, electedMirror 
           <div className="mt-3 font-bold text-green-500 flex items-center space-x-1.5">
             <CheckCircleIcon className="h-5 w-5" />
             <div>
-              <Trans>You already collected this</Trans>
+              You already collected this
             </div>
           </div>
         )}

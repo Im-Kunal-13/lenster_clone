@@ -1,5 +1,4 @@
 import { ErrorMessage } from '@components/UI/ErrorMessage';
-import { t } from '@lingui/macro';
 import { ERROR_MESSAGE, STATIC_ASSETS_URL } from 'data/constants';
 import type { FC } from 'react';
 import { useEffect, useState } from 'react';
@@ -44,7 +43,7 @@ const List: FC<Props> = ({ setEmoji }) => {
   }
 
   if (loading) {
-    return <Loader message={t`Loading emojis`} />;
+    return <Loader message={`Loading emojis`} />;
   }
 
   return (

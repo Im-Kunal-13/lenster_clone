@@ -1,4 +1,3 @@
-import { Trans } from '@lingui/macro';
 import type { FeedItem } from 'lens';
 import type { FC } from 'react';
 
@@ -37,35 +36,35 @@ const Combined: FC<Props> = ({ feedItem }) => {
       <div className="flex items-center space-x-1">
         {mirrorsLength ? (
           <span className="whitespace-nowrap">
-            <Trans>mirrored{totalActions < 3 ? (totalActions !== 1 ? ' and ' : '') : ', '}</Trans>
+            mirrored{totalActions < 3 ? (totalActions !== 1 ? ' and ' : '') : ', '}
           </span>
         ) : null}
         {commentsLength ? (
           <span className="whitespace-nowrap">
-            <Trans>
-              commented
-              {totalActions < 3
-                ? collectsLength && reactionsLength
-                  ? ' and '
-                  : !mirrorsLength && totalActions !== 1
+
+            commented
+            {totalActions < 3
+              ? collectsLength && reactionsLength
+                ? ' and '
+                : !mirrorsLength && totalActions !== 1
                   ? ' and '
                   : ''
-                : ', '}
-              {totalActions >= 3 && (!collectsLength || !reactionsLength) ? ' and ' : ''}
-            </Trans>
+              : ', '}
+            {totalActions >= 3 && (!collectsLength || !reactionsLength) ? ' and ' : ''}
+
           </span>
         ) : null}
         {collectsLength ? (
           <span className="whitespace-nowrap">
-            <Trans>
-              collected
-              {totalActions >= 3 && reactionsLength ? ' and ' : reactionsLength ? ' and ' : ''}
-            </Trans>
+
+            collected
+            {totalActions >= 3 && reactionsLength ? ' and ' : reactionsLength ? ' and ' : ''}
+
           </span>
         ) : null}
         {reactionsLength ? (
           <span className="whitespace-nowrap">
-            <Trans>liked</Trans>
+            liked
           </span>
         ) : null}
       </div>

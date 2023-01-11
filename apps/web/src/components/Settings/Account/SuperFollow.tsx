@@ -9,7 +9,6 @@ import getSignature from '@lib/getSignature';
 import getTokenImage from '@lib/getTokenImage';
 import onError from '@lib/onError';
 import splitSignature from '@lib/splitSignature';
-import { t, Trans } from '@lingui/macro';
 import { LensHubProxy } from 'abis';
 import { ADDRESS_REGEX, DEFAULT_COLLECT_TOKEN, LENSHUB_PROXY, SIGN_WALLET } from 'data/constants';
 import type { Erc20 } from 'lens';
@@ -27,10 +26,10 @@ import { useContractWrite, useSignTypedData } from 'wagmi';
 import { object, string } from 'zod';
 
 const newSuperFollowSchema = object({
-  amount: string().min(1, { message: t`Invalid amount` }),
+  amount: string().min(1, { message: `Invalid amount` }),
   recipient: string()
-    .max(42, { message: t`Ethereum address should be within 42 characters` })
-    .regex(ADDRESS_REGEX, { message: t`Invalid Ethereum address` })
+    .max(42, { message: `Ethereum address should be within 42 characters` })
+    .regex(ADDRESS_REGEX, { message: `Invalid Ethereum address` })
 });
 
 const SuperFollow: FC = () => {
@@ -127,7 +126,7 @@ const SuperFollow: FC = () => {
         <div className="p-5 py-10 space-y-2 text-center">
           <Spinner size="md" className="mx-auto" />
           <div>
-            <Trans>Loading super follow settings</Trans>
+            Loading super follow settings
           </div>
         </div>
       </Card>
@@ -146,17 +145,17 @@ const SuperFollow: FC = () => {
         }}
       >
         <div className="text-lg font-bold">
-          <Trans>Set super follow</Trans>
+          Set super follow
         </div>
         <p>
-          <Trans>
+          
             Setting super follow makes users spend crypto to follow you, and it's a good way to earn it, you
             can change the amount and currency or disable/enable it anytime.
-          </Trans>
+          
         </p>
         <div className="pt-2">
           <div className="label">
-            <Trans>Select Currency</Trans>
+            Select Currency
           </div>
           <select
             className="w-full bg-white rounded-xl border border-gray-300 outline-none dark:bg-gray-800 disabled:bg-gray-500 disabled:bg-opacity-20 disabled:opacity-60 dark:border-gray-700 focus:border-brand-500 focus:ring-brand-400"
@@ -174,7 +173,7 @@ const SuperFollow: FC = () => {
           </select>
         </div>
         <Input
-          label={t`Follow amount`}
+          label={`Follow amount`}
           type="number"
           step="0.0001"
           min="0"
@@ -192,7 +191,7 @@ const SuperFollow: FC = () => {
           {...form.register('amount')}
         />
         <Input
-          label={t`Funds recipient`}
+          label={`Funds recipient`}
           type="text"
           placeholder="0x3A5bd...5e3"
           {...form.register('recipient')}
@@ -208,7 +207,7 @@ const SuperFollow: FC = () => {
                 disabled={typedDataLoading || signLoading || writeLoading || broadcastLoading}
                 icon={<XIcon className="w-4 h-4" />}
               >
-                <Trans>Disable Super follow</Trans>
+                Disable Super follow
               </Button>
             )}
             <Button
@@ -216,7 +215,7 @@ const SuperFollow: FC = () => {
               disabled={typedDataLoading || signLoading || writeLoading || broadcastLoading}
               icon={<StarIcon className="w-4 h-4" />}
             >
-              {followType === 'FeeFollowModuleSettings' ? t`Update Super follow` : t`Set Super follow`}
+              {followType === 'FeeFollowModuleSettings' ? `Update Super follow` : `Set Super follow`}
             </Button>
           </div>
         </div>

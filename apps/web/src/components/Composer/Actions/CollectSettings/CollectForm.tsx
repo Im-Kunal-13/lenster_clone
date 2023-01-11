@@ -11,7 +11,6 @@ import {
   UserGroupIcon
 } from '@heroicons/react/outline';
 import { Analytics } from '@lib/analytics';
-import { t, Trans } from '@lingui/macro';
 import type { Erc20 } from 'lens';
 import { CollectModules, useEnabledModulesQuery } from 'lens';
 import type { Dispatch, FC } from 'react';
@@ -124,14 +123,14 @@ const CollectForm: FC<Props> = ({ setShowModal }) => {
       <div className="py-3.5 px-5 space-y-2 font-bold text-center">
         <Spinner size="md" className="mx-auto" />
         <div>
-          <Trans>Loading collect settings</Trans>
+          Loading collect settings
         </div>
       </div>
     );
   }
 
   if (error) {
-    return <ErrorMessage className="p-5" title={t`Failed to load modules`} error={error} />;
+    return <ErrorMessage className="p-5" title={`Failed to load modules`} error={error} />;
   }
 
   const toggleCollect = () => {
@@ -149,7 +148,7 @@ const CollectForm: FC<Props> = ({ setShowModal }) => {
       <div className="flex items-center space-x-2">
         <Toggle on={selectedCollectModule !== RevertCollectModule} setOn={toggleCollect} />
         <div className="lt-text-gray-500 text-sm font-bold">
-          <Trans>This post can be collected</Trans>
+          This post can be collected
         </div>
       </div>
       {selectedCollectModule !== RevertCollectModule && (
@@ -158,7 +157,7 @@ const CollectForm: FC<Props> = ({ setShowModal }) => {
             <div className="flex items-center space-x-2">
               <CollectionIcon className="h-4 w-4 text-brand-500" />
               <span>
-                <Trans>Charge for collecting</Trans>
+                Charge for collecting
               </span>
             </div>
             <div className="flex items-center space-x-2">
@@ -170,14 +169,14 @@ const CollectForm: FC<Props> = ({ setShowModal }) => {
                 }}
               />
               <div className="lt-text-gray-500 text-sm font-bold">
-                <Trans>Get paid whenever someone collects your post</Trans>
+                Get paid whenever someone collects your post
               </div>
             </div>
             {amount ? (
               <div className="pt-2">
                 <div className="text-sm flex space-x-2">
                   <Input
-                    label={t`Price`}
+                    label={`Price`}
                     type="number"
                     placeholder="0.5"
                     min="0"
@@ -189,7 +188,7 @@ const CollectForm: FC<Props> = ({ setShowModal }) => {
                   />
                   <div>
                     <div className="label">
-                      <Trans>Select Currency</Trans>
+                      Select Currency
                     </div>
                     <select
                       className="w-full bg-white rounded-xl border border-gray-300 outline-none dark:bg-gray-800 disabled:bg-gray-500 disabled:bg-opacity-20 disabled:opacity-60 dark:border-gray-700 focus:border-brand-500 focus:ring-brand-400"
@@ -211,15 +210,15 @@ const CollectForm: FC<Props> = ({ setShowModal }) => {
                   <div className="flex items-center space-x-2">
                     <SwitchHorizontalIcon className="h-4 w-4 text-brand-500" />
                     <span>
-                      <Trans>Mirror referral reward</Trans>
+                      Mirror referral reward
                     </span>
                   </div>
                   <div className="lt-text-gray-500 text-sm font-bold">
-                    <Trans>Share your collect fee with people who amplify your content</Trans>
+                    Share your collect fee with people who amplify your content
                   </div>
                   <div className="text-sm pt-2 flex space-x-2">
                     <Input
-                      label={t`Referral fee`}
+                      label={`Referral fee`}
                       type="number"
                       placeholder="5"
                       iconRight="%"
@@ -241,7 +240,7 @@ const CollectForm: FC<Props> = ({ setShowModal }) => {
                 <div className="flex items-center space-x-2">
                   <StarIcon className="h-4 w-4 text-brand-500" />
                   <span>
-                    <Trans>Limited edition</Trans>
+                    Limited edition
                   </span>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -253,13 +252,13 @@ const CollectForm: FC<Props> = ({ setShowModal }) => {
                     }}
                   />
                   <div className="lt-text-gray-500 text-sm font-bold">
-                    <Trans>Make the collects exclusive</Trans>
+                    Make the collects exclusive
                   </div>
                 </div>
                 {collectLimit ? (
                   <div className="text-sm pt-2 flex space-x-2">
                     <Input
-                      label={t`Collect limit`}
+                      label={`Collect limit`}
                       type="number"
                       placeholder="5"
                       min="1"
@@ -276,7 +275,7 @@ const CollectForm: FC<Props> = ({ setShowModal }) => {
                 <div className="flex items-center space-x-2">
                   <ClockIcon className="h-4 w-4 text-brand-500" />
                   <span>
-                    <Trans>Time limit</Trans>
+                    Time limit
                   </span>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -288,7 +287,7 @@ const CollectForm: FC<Props> = ({ setShowModal }) => {
                     }}
                   />
                   <div className="lt-text-gray-500 text-sm font-bold">
-                    <Trans>Limit collecting to the first 24h</Trans>
+                    Limit collecting to the first 24h
                   </div>
                 </div>
               </div>
@@ -298,7 +297,7 @@ const CollectForm: FC<Props> = ({ setShowModal }) => {
             <div className="flex items-center space-x-2">
               <UserGroupIcon className="h-4 w-4 text-brand-500" />
               <span>
-                <Trans>Who can collect</Trans>
+                Who can collect
               </span>
             </div>
             <div className="flex items-center space-x-2">
@@ -310,7 +309,7 @@ const CollectForm: FC<Props> = ({ setShowModal }) => {
                 }}
               />
               <div className="lt-text-gray-500 text-sm font-bold">
-                <Trans>Only followers can collect</Trans>
+                Only followers can collect
               </div>
             </div>
           </div>
@@ -326,10 +325,10 @@ const CollectForm: FC<Props> = ({ setShowModal }) => {
             setShowModal(false);
           }}
         >
-          <Trans>Cancel</Trans>
+          Cancel
         </Button>
         <Button onClick={() => setShowModal(false)}>
-          <Trans>Save</Trans>
+          Save
         </Button>
       </div>
     </div>

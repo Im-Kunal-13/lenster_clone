@@ -2,7 +2,6 @@ import { Button } from '@components/UI/Button';
 import type { LensterPublication } from '@generated/types';
 import { ExclamationCircleIcon, ExternalLinkIcon, ShieldCheckIcon } from '@heroicons/react/outline';
 import { Analytics } from '@lib/analytics';
-import { Trans } from '@lingui/macro';
 import type { FC } from 'react';
 import { useGlobalModalStateStore } from 'src/store/modals';
 import { MOD } from 'src/tracking';
@@ -25,7 +24,7 @@ const ModAction: FC<Props> = ({ publication }) => {
         icon={<ExclamationCircleIcon className="h-4 w-4" />}
         outline
       >
-        <Trans>Spam</Trans>
+        Spam
       </Button>
       <Button
         onClick={() => {
@@ -34,7 +33,7 @@ const ModAction: FC<Props> = ({ publication }) => {
         }}
         icon={<ShieldCheckIcon className="h-4 w-4" />}
       >
-        <Trans>Others</Trans>
+        Others
       </Button>
       <Button
         onClick={() => {

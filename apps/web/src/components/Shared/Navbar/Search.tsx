@@ -4,7 +4,6 @@ import { Spinner } from '@components/UI/Spinner';
 import useOnClickOutside from '@components/utils/hooks/useOnClickOutside';
 import { SearchIcon, XIcon } from '@heroicons/react/outline';
 import { Analytics } from '@lib/analytics';
-import { t, Trans } from '@lingui/macro';
 import clsx from 'clsx';
 import type { Profile, ProfileSearchResult } from 'lens';
 import { CustomFiltersTypes, SearchRequestTypes, useSearchProfilesLazyQuery } from 'lens';
@@ -25,7 +24,7 @@ interface Props {
 const Search: FC<Props> = ({
   hideDropdown = false,
   onProfileSelected,
-  placeholder = t`Search…`,
+  placeholder = `Search…`,
   modalWidthClassName = 'max-w-md'
 }) => {
   const { push, pathname, query } = useRouter();
@@ -96,7 +95,7 @@ const Search: FC<Props> = ({
               <div className="py-2 px-4 space-y-2 text-sm font-bold text-center">
                 <Spinner size="sm" className="mx-auto" />
                 <div>
-                  <Trans>Searching users</Trans>
+                  Searching users
                 </div>
               </div>
             ) : (
@@ -117,7 +116,7 @@ const Search: FC<Props> = ({
                 ))}
                 {profiles.length === 0 && (
                   <div className="py-2 px-4">
-                    <Trans>No matching users</Trans>
+                    No matching users
                   </div>
                 )}
               </>

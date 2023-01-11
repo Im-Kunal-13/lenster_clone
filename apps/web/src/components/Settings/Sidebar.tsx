@@ -9,7 +9,6 @@ import {
   SparklesIcon,
   UserIcon
 } from '@heroicons/react/outline';
-import { t, Trans } from '@lingui/macro';
 import type { Profile } from 'lens';
 import type { FC } from 'react';
 import { useAppStore } from 'src/store/app';
@@ -25,39 +24,39 @@ const SettingsSidebar: FC = () => {
       <Sidebar
         items={[
           {
-            title: t`Profile`,
+            title: `Profile`,
             icon: <UserIcon className="w-4 h-4" />,
             url: '/settings'
           },
           {
-            title: t`Account`,
+            title: `Account`,
             icon: <ChipIcon className="w-4 h-4" />,
             url: '/settings/account'
           },
           {
-            title: t`Interests`,
+            title: `Interests`,
             icon: <BookmarkIcon className="w-4 h-4" />,
             url: '/settings/interests'
           },
           {
-            title: t`Dispatcher`,
+            title: `Dispatcher`,
             icon: <FingerPrintIcon className="w-4 h-4" />,
             url: '/settings/dispatcher'
           },
           {
-            title: t`Allowance`,
+            title: `Allowance`,
             icon: <ShareIcon className="w-4 h-4" />,
             url: '/settings/allowance'
           },
           {
-            title: t`Cleanup`,
+            title: `Cleanup`,
             icon: <SparklesIcon className="w-4 h-4" />,
             url: '/settings/cleanup'
           },
           {
             title: (
               <div className="text-red-500">
-                <Trans>Danger Zone</Trans>
+                Danger Zone
               </div>
             ),
             icon: <ExclamationIcon className="w-4 h-4 text-red-500" />,

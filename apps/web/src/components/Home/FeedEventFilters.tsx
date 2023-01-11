@@ -3,7 +3,6 @@ import { Checkbox } from '@components/UI/Checkbox';
 import { Tooltip } from '@components/UI/Tooltip';
 import { Menu } from '@headlessui/react';
 import { AdjustmentsIcon } from '@heroicons/react/outline';
-import { t } from '@lingui/macro';
 import clsx from 'clsx';
 import type { ChangeEvent, FC } from 'react';
 import { useTimelinePersistStore } from 'src/store/timeline';
@@ -19,7 +18,7 @@ const FeedEventFilters: FC = () => {
   return (
     <Menu as="div" className="relative">
       <Menu.Button className="rounded-md hover:bg-gray-300 p-1 hover:bg-opacity-20">
-        <Tooltip placement="top" content={t`Filter`}>
+        <Tooltip placement="top" content={`Filter`}>
           <AdjustmentsIcon className="w-5 h-5 text-brand" />
         </Tooltip>
       </Menu.Button>
@@ -41,7 +40,7 @@ const FeedEventFilters: FC = () => {
               onChange={handleChange}
               checked={feedEventFilters.posts}
               name="posts"
-              label={t`Show Posts`}
+              label={`Show Posts`}
             />
           </Menu.Item>
           <Menu.Item
@@ -57,7 +56,7 @@ const FeedEventFilters: FC = () => {
               onChange={handleChange}
               checked={feedEventFilters.mirrors}
               name="mirrors"
-              label={t`Show Mirrors`}
+              label={`Show Mirrors`}
             />
           </Menu.Item>
           <Menu.Item
@@ -73,7 +72,7 @@ const FeedEventFilters: FC = () => {
               onChange={handleChange}
               checked={feedEventFilters.likes}
               name="likes"
-              label={t`Show Likes`}
+              label={`Show Likes`}
             />
           </Menu.Item>
         </Menu.Items>

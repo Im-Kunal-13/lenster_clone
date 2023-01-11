@@ -1,5 +1,4 @@
 import { StarIcon } from '@heroicons/react/solid';
-import { Trans } from '@lingui/macro';
 import type { FC } from 'react';
 
 const Beta: FC = () => {
@@ -7,7 +6,7 @@ const Beta: FC = () => {
     <div className="px-1.5 text-xs flex items-center space-x-1 text-white rounded-md border shadow-sm bg-brand-500 border-brand-600">
       <StarIcon className="h-3 w-3" />
       <div>
-        <Trans>Beta</Trans>
+        Beta
       </div>
     </div>
   );

@@ -4,7 +4,6 @@ import Markup from '@components/Shared/Markup';
 import type { LensterPublication } from '@generated/types';
 import { EyeIcon } from '@heroicons/react/outline';
 import getURLs from '@lib/getURLs';
-import { Trans } from '@lingui/macro';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -38,7 +37,7 @@ const PublicationBody: FC<Props> = ({ publication }) => {
         <div className="mt-4 text-sm lt-text-gray-500 font-bold flex items-center space-x-1">
           <EyeIcon className="h-4 w-4" />
           <Link href={`/posts/${publication?.id}`}>
-            <Trans>Show more</Trans>
+            Show more
           </Link>
         </div>
       )}

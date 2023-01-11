@@ -1,7 +1,6 @@
 import { Button } from '@components/UI/Button';
 import { Spinner } from '@components/UI/Spinner';
 import { ArrowRightIcon } from '@heroicons/react/outline';
-import { Trans } from '@lingui/macro';
 import { HANDLE_SUFFIX } from 'data/constants';
 import { useHasTxHashBeenIndexedQuery } from 'lens';
 import type { FC } from 'react';
@@ -25,7 +24,7 @@ const Pending: FC<Props> = ({ handle, txHash }) => {
         <div className="space-y-3">
           <Spinner className="mx-auto" />
           <div>
-            <Trans>Account creation in progress, please wait!</Trans>
+           Account creation in progress, please wait!
           </div>
         </div>
       ) : (
@@ -35,7 +34,7 @@ const Pending: FC<Props> = ({ handle, txHash }) => {
           <div className="pt-3">
             <a href={`/u/${handle}${HANDLE_SUFFIX}`}>
               <Button className="mx-auto" icon={<ArrowRightIcon className="mr-1 w-4 h-4" />}>
-                <Trans>Go to profile</Trans>
+                Go to profile
               </Button>
             </a>
           </div>

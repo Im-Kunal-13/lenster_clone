@@ -3,7 +3,6 @@ import { Button } from '@components/UI/Button';
 import { Card } from '@components/UI/Card';
 import { CollectionIcon, UsersIcon } from '@heroicons/react/outline';
 import { Analytics } from '@lib/analytics';
-import { t, Trans } from '@lingui/macro';
 import { CollectModules } from 'lens';
 import type { Dispatch, FC } from 'react';
 import toast from 'react-hot-toast';
@@ -44,7 +43,7 @@ const BasicSettings: FC<Props> = ({ setShowModal }) => {
           setRestricted(!restricted);
           Analytics.track(PUBLICATION.NEW.ACCESS.TOGGLE_RESTRICTED_ACCESS);
         }}
-        label={t`Add restrictions on who can view this post`}
+        label={`Add restrictions on who can view this post`}
       />
       {restricted && (
         <>
@@ -53,19 +52,19 @@ const BasicSettings: FC<Props> = ({ setShowModal }) => {
               <div className="flex items-center space-x-2">
                 <CollectionIcon className="h-4 w-4 text-brand-500" />
                 <span>
-                  <Trans>Collectors can view</Trans>
+                  Collectors can view
                 </span>
               </div>
               <ToggleWithHelper
                 on={collectToView}
                 setOn={() => {
                   if (!collectToView && selectedCollectModule === CollectModules.RevertCollectModule) {
-                    return toast.error(t`Enable collect first to use collect based token gating`);
+                    return toast.error(`Enable collect first to use collect based token gating`);
                   }
                   setCollectToView(!collectToView);
                   Analytics.track(PUBLICATION.NEW.ACCESS.TOGGLE_COLLECT_TO_VIEW_ACCESS);
                 }}
-                label={t`People need to collect it first to be able to view it`}
+                label={`People need to collect it first to be able to view it`}
               />
             </div>
           </Card>
@@ -74,7 +73,7 @@ const BasicSettings: FC<Props> = ({ setShowModal }) => {
               <div className="flex items-center space-x-2">
                 <UsersIcon className="h-4 w-4 text-brand-500" />
                 <span>
-                  <Trans>Followers can view</Trans>
+                  Followers can view
                 </span>
               </div>
               <ToggleWithHelper
@@ -83,7 +82,7 @@ const BasicSettings: FC<Props> = ({ setShowModal }) => {
                   setFollowToView(!followToView);
                   Analytics.track(PUBLICATION.NEW.ACCESS.TOGGLE_FOLLOW_TO_VIEW_ACCESS);
                 }}
-                label={t`People need to follow you to be able to view it`}
+                label={`People need to follow you to be able to view it`}
               />
             </div>
           </Card>
@@ -91,10 +90,10 @@ const BasicSettings: FC<Props> = ({ setShowModal }) => {
       )}
       <div className="pt-5 flex space-x-2">
         <Button className="ml-auto" variant="danger" outline onClick={onSave}>
-          <Trans>Cancel</Trans>
+          Cancel
         </Button>
         <Button onClick={onSave}>
-          <Trans>Save</Trans>
+          Save
         </Button>
       </div>
     </div>

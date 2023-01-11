@@ -27,7 +27,6 @@ import { Analytics } from '@lib/analytics';
 import formatHandle from '@lib/formatHandle';
 import getIPFSLink from '@lib/getIPFSLink';
 import getURLs from '@lib/getURLs';
-import { t, Trans } from '@lingui/macro';
 import axios from 'axios';
 import clsx from 'clsx';
 import { LIT_PROTOCOL_ENVIRONMENT, POLYGONSCAN_URL, RARIBLE_URL } from 'data/constants';
@@ -179,7 +178,7 @@ const DecryptedPublicationBody: FC<Props> = ({ encryptedPublication }) => {
         <div className="font-bold flex items-center space-x-2">
           <LockClosedIcon className="h-5 w-5 text-green-300" />
           <span className="text-white font-black text-base">
-            <Trans>To view this...</Trans>
+            To view this
           </span>
         </div>
         <div className="pt-3.5 space-y-2 text-white">
@@ -198,7 +197,7 @@ const DecryptedPublicationBody: FC<Props> = ({ encryptedPublication }) => {
           )}
           {collectNotFinalisedOnChain && (
             <DecryptMessage icon={<CollectionIcon className="animate-pulse h-4 w-4" />}>
-              <Trans>Collect finalizing on chain...</Trans>
+              Collect finalizing on chain
             </DecryptMessage>
           )}
 
@@ -213,7 +212,7 @@ const DecryptedPublicationBody: FC<Props> = ({ encryptedPublication }) => {
           )}
           {followNotFinalisedOnChain && (
             <DecryptMessage icon={<UserAddIcon className="animate-pulse h-4 w-4" />}>
-              <Trans>Follow finalizing on chain...</Trans>
+              Follow finalizing on chain
             </DecryptMessage>
           )}
 
@@ -258,7 +257,7 @@ const DecryptedPublicationBody: FC<Props> = ({ encryptedPublication }) => {
   }
 
   if (decryptError) {
-    return <ErrorMessage title={t`Error while decrypting!`} error={decryptError} />;
+    return <ErrorMessage title={`Error while decrypting!`} error={decryptError} />;
   }
 
   if (!decryptedData) {
@@ -276,7 +275,7 @@ const DecryptedPublicationBody: FC<Props> = ({ encryptedPublication }) => {
             <>
               <Spinner size="xs" className="mr-1" />
               <span>
-                <Trans>Decrypting...</Trans>
+                Decrypting
               </span>
             </>
           ) : (
@@ -308,7 +307,7 @@ const DecryptedPublicationBody: FC<Props> = ({ encryptedPublication }) => {
         <div className="mt-4 text-sm text-gray-500 font-bold flex items-center space-x-1">
           <EyeIcon className="h-4 w-4" />
           <Link href={`/posts/${encryptedPublication?.id}`}>
-            <Trans>Show more</Trans>
+            Show more
           </Link>
         </div>
       )}

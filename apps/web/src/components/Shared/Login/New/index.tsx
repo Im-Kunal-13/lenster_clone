@@ -7,7 +7,6 @@ import { Spinner } from '@components/UI/Spinner';
 import { PlusIcon } from '@heroicons/react/outline';
 import getStampFyiURL from '@lib/getStampFyiURL';
 import uploadToIPFS from '@lib/uploadToIPFS';
-import { t, Trans } from '@lingui/macro';
 import { APP_NAME, HANDLE_REGEX, ZERO_ADDRESS } from 'data/constants';
 import { useCreateProfileMutation } from 'lens';
 import type { ChangeEvent, FC } from 'react';
@@ -19,10 +18,10 @@ import Pending from './Pending';
 
 const newUserSchema = object({
   handle: string()
-    .min(2, { message: t`Handle should be at least 2 characters` })
-    .max(31, { message: t`Handle should not exceed 32 characters` })
+    .min(2, { message: `Handle should be at least 2 characters` })
+    .max(31, { message: `Handle should not exceed 32 characters` })
     .regex(HANDLE_REGEX, {
-      message: t`Handle should only contain alphanumeric characters`
+      message: `Handle should only contain alphanumeric characters`
     })
 });
 
@@ -85,11 +84,11 @@ const NewProfile: FC<Props> = ({ isModal = false }) => {
         <div className="mb-2 space-y-4">
           <img className="w-10 h-10" height={40} width={40} src="/logo.svg" alt="Logo" />
           <div className="text-xl font-bold">
-            <Trans>Sign up to {APP_NAME}</Trans>
+            Sign up to {APP_NAME}
           </div>
         </div>
       )}
-      <Input label={t`Handle`} type="text" placeholder="gavin" {...form.register('handle')} />
+      <Input label={`Handle`} type="text" placeholder="gavin" {...form.register('handle')} />
       <div className="space-y-1.5">
         <div className="label">Avatar</div>
         <div className="space-y-3">
@@ -112,7 +111,7 @@ const NewProfile: FC<Props> = ({ isModal = false }) => {
         disabled={loading}
         icon={loading ? <Spinner size="xs" /> : <PlusIcon className="w-4 h-4" />}
       >
-        <Trans>Sign up</Trans>
+        Sign up
       </Button>
     </Form>
   );

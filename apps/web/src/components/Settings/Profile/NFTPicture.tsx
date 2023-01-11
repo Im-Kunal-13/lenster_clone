@@ -8,7 +8,6 @@ import { Analytics } from '@lib/analytics';
 import getSignature from '@lib/getSignature';
 import onError from '@lib/onError';
 import splitSignature from '@lib/splitSignature';
-import { t, Trans } from '@lingui/macro';
 import { LensHubProxy } from 'abis';
 import { ADDRESS_REGEX, IS_MAINNET, LENSHUB_PROXY, SIGN_WALLET } from 'data/constants';
 import type { NftImage, Profile, UpdateProfileImageRequest } from 'lens';
@@ -29,8 +28,8 @@ import { object, string } from 'zod';
 
 const editNftPictureSchema = object({
   contractAddress: string()
-    .max(42, { message: t`Contract address should be within 42 characters` })
-    .regex(ADDRESS_REGEX, { message: t`Invalid Contract address` }),
+    .max(42, { message: `Contract address should be within 42 characters` })
+    .regex(ADDRESS_REGEX, { message: `Invalid Contract address` }),
   tokenId: string()
 });
 
@@ -47,7 +46,7 @@ const NFTPicture: FC<Props> = ({ profile }) => {
   const { signMessageAsync } = useSignMessage();
 
   const onCompleted = () => {
-    toast.success(t`Avatar updated successfully!`);
+    toast.success(`Avatar updated successfully!`);
     Analytics.track(SETTINGS.PROFILE.SET_NFT_PICTURE);
   };
 
@@ -177,7 +176,7 @@ const NFTPicture: FC<Props> = ({ profile }) => {
         setAvatar(contractAddress, tokenId);
       }}
     >
-      {error && <ErrorMessage className="mb-3" title={t`Transaction failed!`} error={error} />}
+      {error && <ErrorMessage className="mb-3" title={`Transaction failed!`} error={error} />}
       <div>
         <div className="label">Chain</div>
         <div>
@@ -194,19 +193,19 @@ const NFTPicture: FC<Props> = ({ profile }) => {
         </div>
       </div>
       <Input
-        label={t`Contract Address`}
+        label={`Contract Address`}
         type="text"
         placeholder="0x277f5959e22f94d5bd4c2cc0a77c4c71f31da3ac"
         {...form.register('contractAddress')}
       />
-      <Input label={t`Token Id`} type="text" placeholder="1" {...form.register('tokenId')} />
+      <Input label={`Token Id`} type="text" placeholder="1" {...form.register('tokenId')} />
       <Button
         className="ml-auto"
         type="submit"
         disabled={isLoading}
         icon={isLoading ? <Spinner size="xs" /> : <PencilIcon className="w-4 h-4" />}
       >
-        <Trans>Save</Trans>
+        Save
       </Button>
     </Form>
   );

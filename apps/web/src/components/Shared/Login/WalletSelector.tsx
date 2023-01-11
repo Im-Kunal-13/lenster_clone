@@ -8,7 +8,6 @@ import { Analytics } from '@lib/analytics';
 import getWalletLogo from '@lib/getWalletLogo';
 import onError from '@lib/onError';
 import toSnakeCase from '@lib/toSnakeCase';
-import { t, Trans } from '@lingui/macro';
 import clsx from 'clsx';
 import { ERROR_MESSAGE } from 'data/constants';
 import { useAuthenticateMutation, useChallengeLazyQuery, useUserProfilesLazyQuery } from 'lens';
@@ -127,7 +126,7 @@ const WalletSelector: FC<Props> = ({ setHasConnected, setHasProfile }) => {
             }
             onClick={handleSign}
           >
-            <Trans>Sign-In with Lens</Trans>
+       Sign-In with Lens
           </Button>
         ) : (
           <SwitchNetwork />
@@ -141,7 +140,7 @@ const WalletSelector: FC<Props> = ({ setHasConnected, setHasProfile }) => {
         >
           <KeyIcon className="h-4 w-4" />
           <div>
-            <Trans>Change wallet</Trans>
+           Change wallet
           </div>
         </button>
       </div>
@@ -167,7 +166,7 @@ const WalletSelector: FC<Props> = ({ setHasConnected, setHasProfile }) => {
             disabled={mounted ? !connector.ready || connector.id === activeConnector?.id : false}
           >
             <span>
-              {mounted ? (connector.id === 'injected' ? t`Browser Wallet` : connector.name) : connector.name}
+              {mounted ? (connector.id === 'injected' ? `Browser Wallet` : connector.name) : connector.name}
               {mounted ? !connector.ready && ' (unsupported)' : ''}
             </span>
             <img
@@ -184,7 +183,7 @@ const WalletSelector: FC<Props> = ({ setHasConnected, setHasProfile }) => {
       {error?.message ? (
         <div className="flex items-center space-x-1 text-red-500">
           <XCircleIcon className="w-5 h-5" />
-          <div>{error?.message ?? t`Failed to connect`}</div>
+          <div>{error?.message ?? `Failed to connect`}</div>
         </div>
       ) : null}
     </div>

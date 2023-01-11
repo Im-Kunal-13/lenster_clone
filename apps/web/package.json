@@ -3,14 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "lingui compile; next dev --port 4783",
-    "build": "lingui compile; next build",
+    "dev": "next dev",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "cypress run --headless",
-    "crowdin": "crowdin",
-    "extract": "NODE_ENV=development lingui extract"
+    "crowdin": "crowdin"
+
   },
   "dependencies": {
     "@apollo/client": "^3.7.3",
@@ -26,8 +25,6 @@
     "@lexical/link": "^0.7.5",
     "@lexical/markdown": "^0.7.5",
     "@lexical/react": "^0.7.5",
-    "@lingui/macro": "^3.15.0",
-    "@lingui/react": "^3.15.0",
     "@tanstack/react-query": "^4.20.9",
     "@tippyjs/react": "^4.2.6",
     "@xmtp/xmtp-js": "^7.7.2",
@@ -62,7 +59,6 @@
     "@babel/core": "^7.20.12",
     "@crowdin/cli": "^3.9.1",
     "@giphy/js-types": "^4.2.1",
-    "@lingui/cli": "^3.15.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/line-clamp": "^0.4.2",

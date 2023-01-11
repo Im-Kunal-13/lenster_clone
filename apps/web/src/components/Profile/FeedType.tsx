@@ -1,7 +1,6 @@
 import TabButton from '@components/UI/TabButton';
 import { ChatAlt2Icon, FilmIcon, PencilAltIcon, PhotographIcon } from '@heroicons/react/outline';
 import { Analytics } from '@lib/analytics';
-import { t } from '@lingui/macro';
 import type { Dispatch, FC } from 'react';
 import { PROFILE } from 'src/tracking';
 
@@ -17,7 +16,7 @@ const FeedType: FC<Props> = ({ setFeedType, feedType }) => {
     <div className="flex justify-between items-center">
       <div className="flex overflow-x-auto gap-3 px-5 pb-2 mt-3 sm:px-0 sm:mt-0 md:pb-0">
         <TabButton
-          name={t`Feed`}
+          name={`Feed`}
           icon={<PencilAltIcon className="w-4 h-4" />}
           active={feedType === 'FEED'}
           type="feed"
@@ -27,7 +26,7 @@ const FeedType: FC<Props> = ({ setFeedType, feedType }) => {
           }}
         />
         <TabButton
-          name={t`Replies`}
+          name={`Replies`}
           icon={<ChatAlt2Icon className="w-4 h-4" />}
           active={feedType === 'REPLIES'}
           type="replies"
@@ -37,7 +36,7 @@ const FeedType: FC<Props> = ({ setFeedType, feedType }) => {
           }}
         />
         <TabButton
-          name={t`Media`}
+          name={`Media`}
           icon={<FilmIcon className="w-4 h-4" />}
           active={feedType === 'MEDIA'}
           type="media"
@@ -47,7 +46,7 @@ const FeedType: FC<Props> = ({ setFeedType, feedType }) => {
           }}
         />
         <TabButton
-          name={t`NFTs`}
+          name={`NFTs`}
           icon={<PhotographIcon className="w-4 h-4" />}
           active={feedType === 'NFT'}
           type="nft"

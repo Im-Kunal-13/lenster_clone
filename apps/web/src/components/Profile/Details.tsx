@@ -19,7 +19,6 @@ import getAttribute from '@lib/getAttribute';
 import getAvatar from '@lib/getAvatar';
 import isStaff from '@lib/isStaff';
 import isVerified from '@lib/isVerified';
-import { t, Trans } from '@lingui/macro';
 import { RARIBLE_URL, STATIC_IMAGES_URL } from 'data/constants';
 import getEnvConfig from 'data/utils/getEnvConfig';
 import type { Profile } from 'lens';
@@ -110,7 +109,7 @@ const Details: FC<Props> = ({ profile }) => {
           {currentProfile?.id === profile?.id ? (
             <Link href="/settings">
               <Button variant="secondary" icon={<CogIcon className="w-5 h-5" />} outline>
-                <Trans>Edit Profile</Trans>
+                Edit Profile
               </Button>
             </Link>
           ) : followType !== 'RevertFollowModuleSettings' ? (
@@ -139,7 +138,7 @@ const Details: FC<Props> = ({ profile }) => {
           <>
             <MutualFollowers setShowMutualFollowersModal={setShowMutualFollowersModal} profile={profile} />
             <Modal
-              title={t`Followers you know`}
+              title={`Followers you know`}
               icon={<UsersIcon className="w-5 h-5 text-brand" />}
               show={showMutualFollowersModal}
               onClose={() => setShowMutualFollowersModal(false)}

@@ -1,7 +1,6 @@
 import MetaTags from '@components/Common/MetaTags';
 import { Card } from '@components/UI/Card';
 import { GridItemEight, GridLayout } from '@components/UI/GridLayout';
-import { Trans } from '@lingui/macro';
 import { APP_NAME } from 'data/constants';
 import type { NextPage } from 'next';
 import Custom404 from 'src/pages/404';
@@ -15,10 +14,10 @@ const NoConversationSelected = () => {
       <div className="m-auto">
         <span className="text-5xl text-center">👋</span>
         <h3 className="text-lg mt-3 mb-2">
-          <Trans>Select a conversation</Trans>
+          Select a conversation
         </h3>
         <p className="max-w-xs text-md lt-text-gray-500">
-          <Trans>Choose an existing conversation or create a new one to start messaging</Trans>
+          Choose an existing conversation or create a new one to start messaging
         </p>
       </div>
     </div>

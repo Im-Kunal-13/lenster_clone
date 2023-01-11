@@ -6,7 +6,6 @@ import { ExclamationIcon, MinusIcon, PlusIcon } from '@heroicons/react/outline';
 import { Analytics } from '@lib/analytics';
 import { getModule } from '@lib/getModule';
 import onError from '@lib/onError';
-import { t, Trans } from '@lingui/macro';
 import { useGenerateModuleCurrencyApprovalDataLazyQuery } from 'lens';
 import type { Dispatch, FC } from 'react';
 import { useState } from 'react';
@@ -20,7 +19,7 @@ interface Props {
   setAllowed: Dispatch<boolean>;
 }
 
-const AllowanceButton: FC<Props> = ({ title = t`Allow`, module, allowed, setAllowed }) => {
+const AllowanceButton: FC<Props> = ({ title = `Allow`, module, allowed, setAllowed }) => {
   const [showWarningModal, setShowWarningModal] = useState(false);
   const [generateAllowanceQuery, { loading: queryLoading }] =
     useGenerateModuleCurrencyApprovalDataLazyQuery();
@@ -38,7 +37,7 @@ const AllowanceButton: FC<Props> = ({ title = t`Allow`, module, allowed, setAllo
   const { isLoading: waitLoading } = useWaitForTransaction({
     hash: txData?.hash,
     onSuccess: () => {
-      toast.success(t`Module ${allowed ? 'disabled' : 'enabled'} successfully!`);
+      toast.success(`Module ${allowed ? 'disabled' : 'enabled'} successfully!`);
       setShowWarningModal(false);
       setAllowed(!allowed);
       Analytics.track(`module_${allowed ? 'disabled' : 'enabled'}`);
@@ -79,7 +78,7 @@ const AllowanceButton: FC<Props> = ({ title = t`Allow`, module, allowed, setAllo
       }
       onClick={() => handleAllowance(module.currency, '0', module.module)}
     >
-      <Trans>Revoke</Trans>
+      Revoke
     </Button>
   ) : (
     <>
@@ -91,20 +90,20 @@ const AllowanceButton: FC<Props> = ({ title = t`Allow`, module, allowed, setAllo
         {title}
       </Button>
       <Modal
-        title={t`Warning`}
+        title={`Warning`}
         icon={<ExclamationIcon className="w-5 h-5 text-yellow-500" />}
         show={showWarningModal}
         onClose={() => setShowWarningModal(false)}
       >
         <div className="p-5 space-y-3">
           <WarningMessage
-            title={t`Handle with care!`}
+            title={`Handle with care!`}
             message={
               <div className="leading-6">
-                <Trans>
-                  Please be aware that by allowing this module, the amount indicated will be automatically
-                  deducted when you <b>collect</b> and <b>super follow</b>.
-                </Trans>
+
+                Please be aware that by allowing this module, the amount indicated will be automatically
+                deducted when you <b>collect</b> and <b>super follow</b>.
+
               </div>
             }
           />

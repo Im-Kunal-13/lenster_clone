@@ -10,7 +10,6 @@ import imageProxy from '@lib/imageProxy';
 import onError from '@lib/onError';
 import splitSignature from '@lib/splitSignature';
 import uploadToIPFS from '@lib/uploadToIPFS';
-import { t, Trans } from '@lingui/macro';
 import { LensHubProxy } from 'abis';
 import { AVATAR, LENSHUB_PROXY, SIGN_WALLET } from 'data/constants';
 import type { MediaSet, NftImage, Profile, UpdateProfileImageRequest } from 'lens';
@@ -39,7 +38,7 @@ const Picture: FC<Props> = ({ profile }) => {
   const { isLoading: signLoading, signTypedDataAsync } = useSignTypedData({ onError });
 
   const onCompleted = () => {
-    toast.success(t`Avatar updated successfully!`);
+    toast.success(`Avatar updated successfully!`);
     Analytics.track(SETTINGS.PROFILE.SET_PICTURE);
   };
 
@@ -124,7 +123,7 @@ const Picture: FC<Props> = ({ profile }) => {
     }
 
     if (!avatar) {
-      return toast.error(t`Avatar can't be empty!`);
+      return toast.error(`Avatar can't be empty!`);
     }
 
     try {
@@ -151,7 +150,7 @@ const Picture: FC<Props> = ({ profile }) => {
   return (
     <>
       <div className="space-y-1.5">
-        {error && <ErrorMessage className="mb-3" title={t`Transaction failed!`} error={error} />}
+        {error && <ErrorMessage className="mb-3" title={`Transaction failed!`} error={error} />}
         <div className="space-y-3">
           {avatar && (
             <div>
@@ -176,7 +175,7 @@ const Picture: FC<Props> = ({ profile }) => {
         onClick={() => editPicture(avatar)}
         icon={isLoading ? <Spinner size="xs" /> : <PencilIcon className="w-4 h-4" />}
       >
-        <Trans>Save</Trans>
+        Save
       </Button>
     </>
   );

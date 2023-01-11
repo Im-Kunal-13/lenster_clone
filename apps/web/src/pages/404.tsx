@@ -1,7 +1,6 @@
 import MetaTags from '@components/Common/MetaTags';
 import { Button } from '@components/UI/Button';
 import { HomeIcon } from '@heroicons/react/outline';
-import { Trans } from '@lingui/macro';
 import { APP_NAME, STATIC_IMAGES_URL } from 'data/constants';
 import Link from 'next/link';
 import type { FC } from 'react';
@@ -13,15 +12,15 @@ const Custom404: FC = () => {
       <img src={`${STATIC_IMAGES_URL}/gifs/nyan-cat.gif`} alt="Nyan Cat" className="h-60" height={240} />
       <div className="py-10 text-center">
         <h1 className="mb-4 text-3xl font-bold">
-          <Trans>Oops, Lost‽</Trans>
+          Oops, Lost‽
         </h1>
         <div className="mb-4">
-          <Trans>This page could not be found.</Trans>
+          This page could not be found.
         </div>
         <Link href="/">
           <Button className="flex mx-auto item-center" size="lg" icon={<HomeIcon className="w-4 h-4" />}>
             <div>
-              <Trans>Go to home</Trans>
+              Go to home
             </div>
           </Button>
         </Link>

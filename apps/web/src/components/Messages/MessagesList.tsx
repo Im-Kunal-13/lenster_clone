@@ -4,7 +4,6 @@ import { EmojiSadIcon } from '@heroicons/react/outline';
 import formatHandle from '@lib/formatHandle';
 import formatTime from '@lib/formatTime';
 import getAvatar from '@lib/getAvatar';
-import { Trans } from '@lingui/macro';
 import type { DecodedMessage } from '@xmtp/xmtp-js';
 import clsx from 'clsx';
 import dayjs from 'dayjs';
@@ -95,11 +94,11 @@ const MissingXmtpAuth: FC = () => (
     <div className="flex items-center space-x-2 font-bold">
       <EmojiSadIcon className="w-5 h-5" />
       <p>
-        <Trans>This fren hasn't enabled DMs yet</Trans>
+        This fren hasn't enabled DMs yet
       </p>
     </div>
     <p className="text-sm leading-[22px]">
-      <Trans>You can't send them a message until they enable DMs.</Trans>
+      You can't send them a message until they enable DMs.
     </p>
   </Card>
 );
@@ -107,14 +106,14 @@ const MissingXmtpAuth: FC = () => (
 const ConversationBeginningNotice: FC = () => (
   <div className="flex align-items-center justify-center mt-6 pb-4">
     <span className="text-gray-300 text-sm font-bold">
-      <Trans>This is the beginning of the conversation</Trans>
+      This is the beginning of the conversation
     </span>
   </div>
 );
 
 const LoadingMore: FC = () => (
   <div className="p-1 mt-6 text-center text-gray-300 font-bold text-sm">
-    <Trans>Loading...</Trans>
+    Loading...
   </div>
 );
 

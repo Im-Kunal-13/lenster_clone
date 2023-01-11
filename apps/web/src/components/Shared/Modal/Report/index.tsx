@@ -8,7 +8,6 @@ import type { LensterPublication } from '@generated/types';
 import { PencilAltIcon } from '@heroicons/react/outline';
 import { CheckCircleIcon } from '@heroicons/react/solid';
 import { Analytics } from '@lib/analytics';
-import { t, Trans } from '@lingui/macro';
 import { useReportPublicationMutation } from 'lens';
 import type { FC } from 'react';
 import { useState } from 'react';
@@ -20,7 +19,7 @@ import Reason from './Reason';
 
 const newReportSchema = object({
   additionalComments: string().max(260, {
-    message: t`Additional comments should not exceed 260 characters`
+    message: `Additional comments should not exceed 260 characters`
   })
 });
 
@@ -65,7 +64,7 @@ const Report: FC<Props> = ({ publication }) => {
     <div onClick={(event) => event.stopPropagation()}>
       {submitData?.reportPublication === null ? (
         <EmptyState
-          message={t`Publication reported successfully!`}
+          message={`Publication reported successfully!`}
           icon={<CheckCircleIcon className="w-14 h-14 text-green-500" />}
           hideCard
         />
@@ -78,13 +77,13 @@ const Report: FC<Props> = ({ publication }) => {
               reportPublication(additionalComments);
             }}
           >
-            {submitError && <ErrorMessage title={t`Failed to report`} error={submitError} />}
+            {submitError && <ErrorMessage title={`Failed to report`} error={submitError} />}
             <Reason setType={setType} setSubReason={setSubReason} type={type} subReason={subReason} />
             {subReason && (
               <>
                 <TextArea
-                  label={t`Description`}
-                  placeholder={t`Please provide additional details`}
+                  label={`Description`}
+                  placeholder={`Please provide additional details`}
                   {...form.register('additionalComments')}
                 />
                 <div className="ml-auto">
@@ -93,7 +92,7 @@ const Report: FC<Props> = ({ publication }) => {
                     disabled={submitLoading}
                     icon={submitLoading ? <Spinner size="xs" /> : <PencilAltIcon className="w-4 h-4" />}
                   >
-                    <Trans>Report</Trans>
+                    Report
                   </Button>
                 </div>
               </>

@@ -9,7 +9,6 @@ import { Input } from '@components/UI/Input';
 import { TextArea } from '@components/UI/TextArea';
 import { PencilAltIcon } from '@heroicons/react/outline';
 import { CheckCircleIcon } from '@heroicons/react/solid';
-import { t, Trans } from '@lingui/macro';
 import { APP_NAME, CONTACT_EMAIL } from 'data/constants';
 import { useRouter } from 'next/router';
 import type { FC } from 'react';
@@ -17,14 +16,14 @@ import { object, string } from 'zod';
 
 const newContactSchema = object({
   subject: string()
-    .min(1, { message: t`Subject should not be empty` })
+    .min(1, { message: `Subject should not be empty` })
     .max(260, {
-      message: t`Subject should not exceed 260 characters`
+      message: `Subject should not exceed 260 characters`
     }),
   message: string()
-    .min(1, { message: t`Message should not be empty` })
+    .min(1, { message: `Message should not be empty` })
     .max(1000, {
-      message: t`Message should not exceed 1000 characters`
+      message: `Message should not exceed 1000 characters`
     })
 });
 
@@ -37,18 +36,18 @@ const Contact: FC = () => {
 
   return (
     <GridLayout>
-      <MetaTags title={t`Contact • ${APP_NAME}`} />
+      <MetaTags title={`Contact • ${APP_NAME}`} />
       <GridItemFour>
         <SettingsHelper
-          heading={t`Contact ${APP_NAME}`}
-          description={t`Contact us to help you get the issue resolved.`}
+          heading={`Contact ${APP_NAME}`}
+          description={`Contact us to help you get the issue resolved.`}
         />
       </GridItemFour>
       <GridItemEight>
         <Card>
           {false ? (
             <EmptyState
-              message={t`Publication reported successfully!`}
+              message={`Publication reported successfully!`}
               icon={<CheckCircleIcon className="w-14 h-14 text-green-500" />}
               hideCard
             />
@@ -63,11 +62,11 @@ const Contact: FC = () => {
                 push('/');
               }}
             >
-              <Input label={t`Subject`} placeholder={t`What happened?`} {...form.register('subject')} />
-              <TextArea label={t`Message`} placeholder={t`How can we help?`} {...form.register('message')} />
+              <Input label={`Subject`} placeholder={`What happened?`} {...form.register('subject')} />
+              <TextArea label={`Message`} placeholder={`How can we help?`} {...form.register('message')} />
               <div className="ml-auto">
                 <Button type="submit" icon={<PencilAltIcon className="w-4 h-4" />}>
-                  <Trans>Submit</Trans>
+                  Submit
                 </Button>
               </div>
             </Form>

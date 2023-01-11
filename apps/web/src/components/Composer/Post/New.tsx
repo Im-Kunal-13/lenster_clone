@@ -4,7 +4,6 @@ import { Tooltip } from '@components/UI/Tooltip';
 import { PencilAltIcon } from '@heroicons/react/outline';
 import formatHandle from '@lib/formatHandle';
 import getAvatar from '@lib/getAvatar';
-import { t, Trans } from '@lingui/macro';
 import { useRouter } from 'next/router';
 import type { FC, ReactNode } from 'react';
 import { useEffect, useState } from 'react';
@@ -84,11 +83,11 @@ const NewPost: FC = () => {
         >
           <PencilAltIcon className="h-5 w-5" />
           <span>
-            <Trans>What's happening?</Trans>
+            What's happening
           </span>
         </button>
         <Modal
-          title={t`Create post`}
+          title={`Create post`}
           size="md"
           show={showNewPostModal}
           onClose={() => setShowNewPostModal(false)}

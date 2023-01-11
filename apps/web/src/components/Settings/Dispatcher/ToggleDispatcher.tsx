@@ -6,7 +6,6 @@ import { Analytics } from '@lib/analytics';
 import getSignature from '@lib/getSignature';
 import onError from '@lib/onError';
 import splitSignature from '@lib/splitSignature';
-import { t } from '@lingui/macro';
 import { LensHubProxy } from 'abis';
 import clsx from 'clsx';
 import { LENSHUB_PROXY } from 'data/constants';
@@ -28,7 +27,7 @@ const ToggleDispatcher: FC<Props> = ({ buttonSize = 'md' }) => {
   const canUseRelay = currentProfile?.dispatcher?.canUseRelay;
 
   const onCompleted = () => {
-    toast.success(t`Profile updated successfully!`);
+    toast.success(`Profile updated successfully!`);
     Analytics.track(SETTINGS.DISPATCHER.TOGGLE);
   };
 
@@ -109,7 +108,7 @@ const ToggleDispatcher: FC<Props> = ({ buttonSize = 'md' }) => {
       }
       onClick={toggleDispatcher}
     >
-      {canUseRelay ? t`Disable dispatcher` : t`Enable dispatcher`}
+      {canUseRelay ? `Disable dispatcher` : `Enable dispatcher`}
     </Button>
   );
 };

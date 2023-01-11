@@ -10,7 +10,6 @@ import { publicationKeyFields } from '@lib/keyFields';
 import nFormatter from '@lib/nFormatter';
 import onError from '@lib/onError';
 import splitSignature from '@lib/splitSignature';
-import { t } from '@lingui/macro';
 import { LensHubProxy } from 'abis';
 import clsx from 'clsx';
 import { LENSHUB_PROXY, SIGN_WALLET } from 'data/constants';
@@ -181,7 +180,7 @@ const Mirror: FC<Props> = ({ publication, isFullPublication }) => {
           ) : (
             <Tooltip
               placement="top"
-              content={count > 0 ? t`${humanize(count)} Mirrors` : t`Mirror`}
+              content={count > 0 ? `${humanize(count)} Mirrors` : `Mirror`}
               withDelay
             >
               <SwitchHorizontalIcon className={iconClassName} />

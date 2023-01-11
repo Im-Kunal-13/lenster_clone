@@ -1,7 +1,6 @@
 import { Analytics } from '@lib/analytics';
 import formatHandle from '@lib/formatHandle';
 import getAvatar from '@lib/getAvatar';
-import { Trans } from '@lingui/macro';
 import clsx from 'clsx';
 import type { Profile } from 'lens';
 import { useMutualFollowersQuery } from 'lens';
@@ -55,7 +54,7 @@ const MutualFollowers: FC<Props> = ({ setShowMutualFollowersModal, profile, vari
       </div>
       <div>
         <span>
-          <Trans>Followed by</Trans>{' '}
+          Followed by{' '}
         </span>
         {children}
       </div>
